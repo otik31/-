@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мой склад</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+}
+
+.card {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+button, select, input {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+button {
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>📦 Мой склад</h1>
+
+<h2>Товар №1</h2>
+
+<p>
+Остаток:
+<strong id="stock">10</strong> шт.
+</p>
+
+<hr>
+
+<h3>Продажа</h3>
+
+<div class="row">
+
+<select id="platform">
+<option>Wildberries</option>
+<option>Ozon</option>
+</select>
+
+<select id="account">
+<option>Аккаунт №1</option>
+<option>Аккаунт №2</option>
+</select>
+
+<input id="quantity" type="number" value="1" min="1">
+
+<button onclick="sell()">Продать</button>
+
+</div>
+
+<hr>
+
+<h3>История</h3>
+
+<table>
+<thead>
+<tr>
+<th>Площадка</th>
+<th>Аккаунт</th>
+<th>Кол-во</th>
+</tr>
+</thead>
+
+<tbody id="history">
+</tbody>
+</table>
+
+</div>
+
+<script>
+
+let stock = 10;
+
+function sell() {
+
+    const platform = document.getElementById("platform").value;
+    const account = document.getElementById("account").value;
+    const quantity = Number(document.getElementById("quantity").value);
+
+    if (quantity <= 0) {
+        alert("Введите количество");
+        return;
+    }
+
+    if (quantity > stock) {
+        alert("Недостаточно товара");
+        return;
+    }
+
+    stock -= quantity;
+
+    document.getElementById("stock").textContent = stock;
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${platform}</td>
+        <td>${account}</td>
+        <td>-${quantity}</td>
+    `;
+
+    document.getElementById("history").appendChild(row);
+}
+
+</script>
+
+</body>
+</html>
