@@ -23,6 +23,9 @@ body {
     background: #111;
     color: white;
     padding: 18px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .header h1 {
@@ -36,217 +39,721 @@ body {
     padding: 15px;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.section {
+    margin-bottom: 22px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .card {
     background: white;
     border-radius: 14px;
-    padding: 18px;
+    padding: 15px;
+    margin-bottom: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.big {
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 8px;
+.warehouse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.label {
+.warehouse-name {
+    font-weight: bold;
+}
+
+.warehouse-count {
+    font-weight: bold;
+}
+
+.add-warehouse {
+    width: 100%;
+    border: 2px dashed #ccc;
+    background: white;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.product-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    font-size: 12px;
     color: #777;
-    font-size: 14px;
+    text-align: left;
+    padding: 8px 4px;
+}
+
+td {
+    padding: 10px 4px;
+    border-top: 1px solid #eee;
+}
+
+.number {
+    font-weight: bold;
+}
+
+.order-link {
+    color: #0066ff;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    font-weight: bold;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.metric {
+    background: white;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+.metric-label {
+    color: #777;
+    font-size: 13px;
+}
+
+.metric-value {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 6px;
 }
 
 .buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-top: 15px;
 }
 
 button {
-    flex: 1;
     border: none;
     padding: 13px;
     border-radius: 10px;
     font-size: 15px;
-    cursor: pointer;
 }
 
-.sell {
+.primary {
     background: #111;
     color: white;
 }
 
-.add {
-    background: #e8e8e8;
-}
-
-h2 {
-    font-size: 18px;
-    margin-top: 25px;
-}
-
-.operation {
+.secondary {
     background: white;
-    padding: 13px;
-    border-radius: 10px;
-    margin-top: 8px;
+    border: 1px solid #ddd;
 }
 
-.empty {
-    color: #888;
-    text-align: center;
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
     padding: 20px;
+}
+
+.modal-box {
+    background: white;
+    max-width: 500px;
+    margin: 50px auto;
+    border-radius: 16px;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.detail-row {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
 </style>
 </head>
 
+
 <body>
 
+
 <div class="header">
+
     <h1>📦 Мой склад</h1>
+
 </div>
+
 
 <div class="container">
 
-    <div class="cards">
 
-        <div class="card">
-            <div class="label">Остаток</div>
-            <div class="big" id="stock">10</div>
-            <div class="label">шт.</div>
-        </div>
+<!-- ДАШБОРД -->
 
-        <div class="card">
-            <div class="label">Товаров</div>
-            <div class="big">1</div>
-        </div>
+<div class="section">
 
-        <div class="card">
-            <div class="label">Продаж</div>
-            <div class="big" id="sales">0</div>
-            <div class="label">сегодня</div>
-        </div>
-
-        <div class="card">
-            <div class="label">Операций</div>
-            <div class="big" id="operations">0</div>
-        </div>
-
+    <div class="section-title">
+        Сегодня
     </div>
 
+    <div class="dashboard">
 
-    <h2>Площадки</h2>
+        <div class="metric">
 
-    <div class="cards">
+            <div class="metric-label">
+                Всего товара
+            </div>
 
-        <div class="card">
-            <div class="label">Wildberries</div>
-            <div class="big" id="wb">0</div>
-            <div class="label">продаж</div>
+            <div class="metric-value" id="totalStock">
+                667
+            </div>
+
+            <div class="metric-label">
+                шт.
+            </div>
+
         </div>
 
-        <div class="card">
-            <div class="label">Ozon</div>
-            <div class="big" id="ozon">0</div>
-            <div class="label">продаж</div>
+
+        <div class="metric">
+
+            <div class="metric-label">
+                Заказано сегодня
+            </div>
+
+            <div class="metric-value" id="totalOrders">
+                25
+            </div>
+
+            <div class="metric-label">
+                шт.
+            </div>
+
         </div>
 
-    </div>
+
+        <div class="metric">
+
+            <div class="metric-label">
+                Свободно
+            </div>
+
+            <div class="metric-value" id="freeStock">
+                642
+            </div>
+
+            <div class="metric-label">
+                шт.
+            </div>
+
+        </div>
 
 
-    <h2>Быстрые действия</h2>
+        <div class="metric">
 
-    <div class="buttons">
+            <div class="metric-label">
+                Складов
+            </div>
 
-        <button class="sell" onclick="sell()">
-            − Продажа
-        </button>
+            <div class="metric-value" id="warehouseCount">
+                2
+            </div>
 
-        <button class="add" onclick="addStock()">
-            + Приход
-        </button>
-
-    </div>
-
-
-    <h2>Последние операции</h2>
-
-    <div id="history">
-
-        <div class="empty">
-            Пока операций нет
         </div>
 
     </div>
 
 </div>
+
+
+
+<!-- СКЛАДЫ -->
+
+<div class="section">
+
+    <div class="section-title">
+        Склады
+    </div>
+
+
+    <div id="warehouses">
+
+
+        <div class="card warehouse">
+
+            <div class="warehouse-name">
+                📍 Белгород
+            </div>
+
+            <div class="warehouse-count">
+                367 шт.
+            </div>
+
+        </div>
+
+
+        <div class="card warehouse">
+
+            <div class="warehouse-name">
+                📍 Москва
+            </div>
+
+            <div class="warehouse-count">
+                300 шт.
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="add-warehouse"
+        onclick="addWarehouse()">
+
+        ＋ Добавить склад
+
+    </button>
+
+</div>
+
+
+
+<!-- ТОВАР -->
+
+<div class="section">
+
+    <div class="section-title">
+        Белгород
+    </div>
+
+
+    <div class="card">
+
+
+        <div class="product-title">
+
+            Товар 1
+
+        </div>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Размер
+                    </th>
+
+                    <th>
+                        Остаток
+                    </th>
+
+                    <th>
+                        Заказано
+                    </th>
+
+                    <th>
+                        Свободно
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <tr>
+
+                    <td>
+                        1
+                    </td>
+
+                    <td class="number">
+                        20
+                    </td>
+
+                    <td>
+                        <span
+                            class="order-link"
+                            onclick="showOrders(1,3)">
+                            3
+                        </span>
+                    </td>
+
+                    <td>
+                        17
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        2
+                    </td>
+
+                    <td class="number">
+                        35
+                    </td>
+
+                    <td>
+                        <span
+                            class="order-link"
+                            onclick="showOrders(2,7)">
+                            7
+                        </span>
+                    </td>
+
+                    <td>
+                        28
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        3
+                    </td>
+
+                    <td class="number">
+                        42
+                    </td>
+
+                    <td>
+                        <span
+                            class="order-link"
+                            onclick="showOrders(3,12)">
+                            12
+                        </span>
+                    </td>
+
+                    <td>
+                        30
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        4
+                    </td>
+
+                    <td class="number">
+                        18
+                    </td>
+
+                    <td>
+                        <span
+                            class="order-link"
+                            onclick="showOrders(4,2)">
+                            2
+                        </span>
+                    </td>
+
+                    <td>
+                        16
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        5
+                    </td>
+
+                    <td class="number">
+                        7
+                    </td>
+
+                    <td>
+                        <span
+                            class="order-link"
+                            onclick="showOrders(5,1)">
+                            1
+                        </span>
+                    </td>
+
+                    <td>
+                        6
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+
+        <div class="total">
+
+            <span>
+                Всего
+            </span>
+
+            <span>
+                122 шт.
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ДЕЙСТВИЯ -->
+
+<div class="section">
+
+    <div class="section-title">
+        Быстрые действия
+    </div>
+
+
+    <div class="buttons">
+
+        <button
+            class="primary"
+            onclick="addStock()">
+
+            ＋ Приход
+
+        </button>
+
+
+        <button
+            class="secondary"
+            onclick="sellStock()">
+
+            − Продажа
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+
+<div
+    class="modal"
+    id="modal">
+
+    <div class="modal-box">
+
+        <span
+            class="close"
+            onclick="closeModal()">
+
+            ×
+
+        </span>
+
+
+        <div id="modalContent">
+
+        </div>
+
+    </div>
+
+</div>
+
 
 
 <script>
 
-let stock = 10;
-let sales = 0;
-let operations = 0;
-let wb = 0;
-let ozon = 0;
+
+function showOrders(size, quantity) {
 
 
-function sell() {
+    document.getElementById("modalContent").innerHTML = `
 
-    if (stock <= 0) {
+        <h2>
+            Заказы — размер ${size}
+        </h2>
 
-        alert("Товар закончился");
-
-        return;
-    }
-
-
-    let platform = prompt(
-        "Где была продажа?\n\n1 — Wildberries\n2 — Ozon"
-    );
+        <p>
+            Сегодня заказано:
+            <b>${quantity} шт.</b>
+        </p>
 
 
-    if (platform !== "1" && platform !== "2") {
+        <div class="detail-row">
 
-        return;
-    }
+            🟣 <b>Wildberries</b>
 
+            <br>
 
-    stock--;
+            Заказано: ${Math.ceil(quantity * 0.7)} шт.
 
-    sales++;
-
-    operations++;
+        </div>
 
 
-    if (platform === "1") {
+        <div class="detail-row">
 
-        wb++;
+            🔵 <b>Ozon</b>
 
-        addOperation("Продажа", "Wildberries");
+            <br>
 
-    } else {
+            Заказано: ${Math.floor(quantity * 0.3)} шт.
 
-        ozon++;
-
-        addOperation("Продажа", "Ozon");
-
-    }
+        </div>
 
 
-    updateDashboard();
+        <br>
+
+        <button
+            class="primary"
+            style="width:100%"
+            onclick="closeModal()">
+
+            Закрыть
+
+        </button>
+
+    `;
+
+
+    document.getElementById("modal").style.display = "block";
 
 }
 
 
+
+function addWarehouse() {
+
+
+    let name = prompt(
+        "Введите название города:"
+    );
+
+
+    if (!name) {
+
+        return;
+
+    }
+
+
+    let warehouses =
+        document.getElementById("warehouses");
+
+
+    let card =
+        document.createElement("div");
+
+
+    card.className = "card warehouse";
+
+
+    card.innerHTML = `
+
+        <div class="warehouse-name">
+
+            📍 ${name}
+
+        </div>
+
+        <div class="warehouse-count">
+
+            0 шт.
+
+        </div>
+
+    `;
+
+
+    warehouses.appendChild(card);
+
+
+    updateWarehouseCount();
+
+}
+
+
+
+function updateWarehouseCount() {
+
+    let count =
+        document.querySelectorAll(
+            "#warehouses .warehouse"
+        ).length;
+
+
+    document.getElementById(
+        "warehouseCount"
+    ).innerText = count;
+
+}
+
+
+
 function addStock() {
 
-    let quantity = prompt("Сколько товара добавить?");
+
+    let quantity = prompt(
+        "Сколько товара добавить?"
+    );
+
 
     quantity = Number(quantity);
 
@@ -254,89 +761,122 @@ function addStock() {
     if (!quantity || quantity <= 0) {
 
         return;
+
     }
 
 
-    stock += quantity;
+    let current =
+        Number(
+            document.getElementById(
+                "totalStock"
+            ).innerText
+        );
 
-    operations++;
+
+    current += quantity;
 
 
-    addOperation(
-        "Приход",
-        "+" + quantity + " шт."
+    document.getElementById(
+        "totalStock"
+    ).innerText = current;
+
+
+    updateFree();
+
+}
+
+
+
+function sellStock() {
+
+
+    let quantity = prompt(
+        "Сколько товара продано?"
     );
 
 
-    updateDashboard();
-
-}
+    quantity = Number(quantity);
 
 
-function addOperation(type, info) {
+    if (!quantity || quantity <= 0) {
 
-    let history =
-        document.getElementById("history");
-
-
-    let empty =
-        history.querySelector(".empty");
-
-
-    if (empty) {
-
-        empty.remove();
+        return;
 
     }
 
 
-    let operation =
-        document.createElement("div");
+    let current =
+        Number(
+            document.getElementById(
+                "totalStock"
+            ).innerText
+        );
 
 
-    operation.className = "operation";
+    if (quantity > current) {
+
+        alert(
+            "Недостаточно товара"
+        );
+
+        return;
+
+    }
 
 
-    operation.innerHTML =
-
-        "<b>" + type + "</b><br>" +
-
-        "<span class='label'>" +
-
-        info +
-
-        "</span>";
+    current -= quantity;
 
 
-    history.prepend(operation);
+    document.getElementById(
+        "totalStock"
+    ).innerText = current;
+
+
+    updateFree();
+
+}
+
+
+
+function updateFree() {
+
+
+    let stock =
+        Number(
+            document.getElementById(
+                "totalStock"
+            ).innerText
+        );
+
+
+    let orders =
+        Number(
+            document.getElementById(
+                "totalOrders"
+            ).innerText
+        );
+
+
+    document.getElementById(
+        "freeStock"
+    ).innerText =
+        stock - orders;
 
 }
 
 
-function updateDashboard() {
 
-    document.getElementById("stock").innerText =
-        stock;
+function closeModal() {
 
-
-    document.getElementById("sales").innerText =
-        sales;
-
-
-    document.getElementById("operations").innerText =
-        operations;
-
-
-    document.getElementById("wb").innerText =
-        wb;
-
-
-    document.getElementById("ozon").innerText =
-        ozon;
+    document.getElementById(
+        "modal"
+    ).style.display = "none";
 
 }
+
 
 </script>
+
 
 </body>
 </html>
