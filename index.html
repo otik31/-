@@ -14,59 +14,45 @@
 
 body {
     margin: 0;
-    background: #f3f4f6;
-    color: #111;
+    background: #f4f5f7;
     font-family: Arial, sans-serif;
-}
-
-button,
-input,
-select {
-    font-family: inherit;
+    color: #111;
 }
 
 .header {
     background: #111;
     color: white;
-    height: 60px;
-    padding: 0 15px;
-
+    padding: 14px 16px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-
+    align-items: center;
     position: sticky;
     top: 0;
-
-    z-index: 50;
+    z-index: 20;
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
+.header h1 {
+    margin: 0;
+    font-size: 21px;
 }
 
 .menu-button {
     background: #333;
     color: white;
     border: 0;
-
-    width: 42px;
-    height: 42px;
-
-    border-radius: 10px;
-
-    font-size: 20px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    font-size: 18px;
 }
 
 .container {
-    max-width: 760px;
+    max-width: 700px;
     margin: auto;
     padding: 15px;
 }
 
 .section {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .section-title {
@@ -84,14 +70,8 @@ select {
 .metric {
     background: white;
     border-radius: 14px;
-
     padding: 15px;
-
-    min-height: 110px;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.05);
-
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
     cursor: pointer;
 }
 
@@ -99,33 +79,22 @@ select {
     transform: scale(.98);
 }
 
-.metric-title {
+.metric-label {
     color: #777;
     font-size: 13px;
 }
 
 .metric-value {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
-
-    margin-top: 8px;
-}
-
-.metric-unit {
-    color: #777;
-    font-size: 13px;
+    margin-top: 7px;
 }
 
 .card {
     background: white;
     border-radius: 14px;
-
     padding: 15px;
-
     margin-bottom: 10px;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.04);
 }
 
 .clickable {
@@ -136,9 +105,8 @@ select {
     transform: scale(.99);
 }
 
-.warehouse-row {
+.warehouse {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
@@ -146,15 +114,15 @@ select {
     font-weight: bold;
 }
 
-.product-name {
-    font-size: 17px;
+.product-title {
     font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 12px;
 }
 
 .product-subtitle {
     color: #777;
     font-size: 13px;
-    margin-top: 5px;
 }
 
 table {
@@ -163,265 +131,209 @@ table {
 }
 
 th {
-    text-align: left;
     color: #777;
     font-size: 12px;
-    padding: 8px 5px;
+    text-align: left;
+    padding: 7px 4px;
 }
 
 td {
-    padding: 11px 5px;
+    padding: 10px 4px;
     border-top: 1px solid #eee;
 }
 
-.link {
+.number {
+    font-weight: bold;
+}
+
+.order-link,
+.detail-link {
     color: #1266ff;
     font-weight: bold;
+    text-decoration: underline;
     cursor: pointer;
 }
 
 .total {
-    margin-top: 12px;
-    padding-top: 12px;
-
-    border-top: 1px solid #eee;
-
     display: flex;
     justify-content: space-between;
-
+    border-top: 1px solid #eee;
+    margin-top: 12px;
+    padding-top: 12px;
     font-weight: bold;
-}
-
-.warning {
-    background: #fff8dc;
-    border: 1px solid #e8d27c;
-}
-
-.success {
-    background: #e9f7ec;
-    border: 1px solid #a8d5b0;
 }
 
 .add-button {
     width: 100%;
-
-    padding: 14px;
-
     background: white;
-
     border: 2px dashed #ccc;
-
-    border-radius: 12px;
-
-    font-size: 15px;
-
-    cursor: pointer;
-}
-
-.blue {
-    color: #1266ff;
-    font-weight: bold;
-}
-
-.danger-button {
-    background: #ffe6e6;
-    color: #c00000;
-
-    border: 0;
-
-    padding: 9px 12px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-}
-
-.primary-button {
-    width: 100%;
-
-    background: #111;
-    color: white;
-
-    border: 0;
-
     padding: 13px;
-
-    border-radius: 9px;
-
-    font-size: 15px;
-}
-
-.secondary-button {
-    width: 100%;
-
-    background: #eee;
-
-    border: 0;
-
-    padding: 13px;
-
-    border-radius: 9px;
-
-    font-size: 15px;
-}
-
-.back-button {
-    background: #eee;
-
-    border: 0;
-
-    padding: 9px 12px;
-
-    border-radius: 8px;
-
-    margin-bottom: 12px;
+    border-radius: 11px;
 }
 
 .modal {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
     background: rgba(0,0,0,.5);
-
     z-index: 100;
-
     padding: 15px;
 }
 
 .modal-box {
     background: white;
-
-    max-width: 560px;
-
-    margin: 20px auto;
-
+    max-width: 500px;
+    margin: 25px auto;
     border-radius: 16px;
-
     padding: 20px;
-
-    max-height: 90vh;
-
+    max-height: 88vh;
     overflow-y: auto;
 }
 
 .close {
     float: right;
-
-    font-size: 28px;
-
+    font-size: 25px;
     cursor: pointer;
 }
 
-.modal-row {
-    padding: 13px 5px;
-
+.modal-item {
+    padding: 14px 5px;
     border-bottom: 1px solid #eee;
-
     cursor: pointer;
 }
 
-.modal-row:last-child {
+.modal-item:last-child {
     border-bottom: 0;
 }
 
-.small {
-    color: #777;
+.modal-item:hover {
+    background: #f5f5f5;
+}
 
-    font-size: 13px;
+.back {
+    background: #eee;
+    border: 0;
+    padding: 9px 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px;
+    margin: 6px 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.save {
+    width: 100%;
+    background: #111;
+    color: white;
+    border: 0;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.secondary {
+    width: 100%;
+    background: #eee;
+    color: #111;
+    border: 0;
+    padding: 12px;
+    border-radius: 9px;
+    margin-top: 8px;
+}
+
+.delete {
+    background: #ffe5e5;
+    color: #b00000;
+    border: 0;
+    padding: 8px 11px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu-section {
+    margin-top: 20px;
+}
+
+.menu-section h3 {
+    margin-bottom: 8px;
+}
+
+.menu-row {
+    padding: 13px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.plus {
+    color: #1266ff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.platform {
+    font-weight: bold;
+}
+
+.account {
+    padding-left: 15px;
+    color: #555;
+    margin-top: 7px;
 }
 
 .badge {
     display: inline-block;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-
     background: #eee;
-
+    border-radius: 20px;
+    padding: 5px 9px;
     font-size: 12px;
 }
 
-.form-label {
-    display: block;
-
-    margin-top: 12px;
-    margin-bottom: 6px;
-
-    font-size: 13px;
-
-    color: #555;
+.warning {
+    background: #fff7d6;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 10px 0;
 }
 
-input {
-    width: 100%;
-
+.success {
+    background: #e9f7ec;
+    border-radius: 10px;
     padding: 12px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 9px;
-
-    font-size: 15px;
+    margin: 10px 0;
 }
 
 .empty {
     text-align: center;
-
-    padding: 25px;
-
     color: #777;
+    padding: 20px;
 }
 
-.menu-section {
-    margin-top: 22px;
+.small {
+    color: #777;
+    font-size: 13px;
 }
 
-.menu-section-title {
-    font-weight: bold;
-
-    margin-bottom: 8px;
-}
-
-.menu-item {
-    padding: 13px 5px;
-
-    border-bottom: 1px solid #eee;
-}
-
-.menu-item-action {
-    color: #1266ff;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.account-line {
+.stat-row {
     display: flex;
-
     justify-content: space-between;
-
-    align-items: center;
-
-    padding: 9px 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<header class="header">
+<div class="header">
 
-    <div class="logo">
-        📦 Мой склад
-    </div>
+    <h1>📦 Мой склад</h1>
 
     <button
         class="menu-button"
@@ -431,14 +343,14 @@ input {
 
     </button>
 
-</header>
+</div>
 
 
-<main
+<div
     class="container"
     id="app">
 
-</main>
+</div>
 
 
 <div
@@ -464,216 +376,286 @@ input {
 
 <script>
 
-
-/* =========================================================
+/* =====================================================
    ДАННЫЕ
-========================================================= */
+===================================================== */
 
+const defaultData = {
 
-let warehouses = [
+    warehouses: [
 
-    {
-        id: 1,
-        name: "Белгород"
-    },
+        {
+            id: 1,
+            name: "Белгород"
+        },
 
-    {
-        id: 2,
-        name: "Москва"
-    }
+        {
+            id: 2,
+            name: "Москва"
+        }
 
-];
+    ],
 
+    platforms: [
 
-let platforms = [
+        {
+            id: 1,
+            name: "Wildberries",
 
-    {
-        id: 1,
+            accounts: [
 
-        name: "Wildberries",
+                {
+                    id: 1,
+                    name: "Аккаунт №1"
+                },
 
-        accounts: [
+                {
+                    id: 2,
+                    name: "Аккаунт №2"
+                }
 
-            {
-                id: 1,
-                name: "WB Аккаунт 1"
-            },
+            ]
 
-            {
-                id: 2,
-                name: "WB Аккаунт 2"
-            }
+        },
 
-        ]
+        {
+            id: 2,
+            name: "Ozon",
 
-    },
+            accounts: [
 
-    {
-        id: 2,
+                {
+                    id: 3,
+                    name: "Аккаунт №1"
+                }
 
-        name: "Ozon",
-
-        accounts: [
-
-            {
-                id: 3,
-                name: "Ozon Аккаунт 1"
-            }
-
-        ]
-
-    }
-
-];
-
-
-let products = [
-
-    {
-        id: 1,
-
-        name: "Товар 1",
-
-        owner: "manufacturer",
-
-        sizes: [
-
-            {
-                id: 1,
-                size: "1",
-                stock: 20
-            },
-
-            {
-                id: 2,
-                size: "2",
-                stock: 35
-            },
-
-            {
-                id: 3,
-                size: "3",
-                stock: 42
-            },
-
-            {
-                id: 4,
-                size: "4",
-                stock: 18
-            },
-
-            {
-                id: 5,
-                size: "5",
-                stock: 7
-            }
-
-        ]
-
-    }
-
-];
-
-
-let orders = [
-
-    {
-        id: "WB-10001",
-        platform: 1,
-        account: 1,
-        product: 1,
-        size: "3",
-        quantity: 5
-    },
-
-    {
-        id: "WB-10002",
-        platform: 1,
-        account: 2,
-        product: 1,
-        size: "3",
-        quantity: 3
-    },
-
-    {
-        id: "OZ-20001",
-        platform: 2,
-        account: 3,
-        product: 1,
-        size: "3",
-        quantity: 4
-    },
-
-    {
-        id: "WB-10003",
-        platform: 1,
-        account: 1,
-        product: 1,
-        size: "2",
-        quantity: 7
-    }
-
-];
-
-
-/*
-    Для прототипа считаем,
-    что производителю нужно поставить
-    количество, которое заказали.
-*/
-
-
-let supplierOrders = [
-
-    {
-        product: 1,
-        size: "3",
-        quantity: 15
-    }
-
-];
-
-
-
-/* =========================================================
-   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-========================================================= */
-
-
-function getProduct(id) {
-
-    return products.find(
-        product => product.id === id
-    );
-
-}
-
-
-function getPlatform(id) {
-
-    return platforms.find(
-        platform => platform.id === id
-    );
-
-}
-
-
-function getAccount(id) {
-
-    for (
-        const platform of platforms
-    ) {
-
-        const account =
-            platform.accounts.find(
-                account => account.id === id
-            );
-
-        if (account) {
-
-            return account;
+            ]
 
         }
+
+    ],
+
+    products: [
+
+        {
+            id: 1,
+
+            name: "Товар 1",
+
+            owner: "manufacturer",
+
+            warehouse: 1,
+
+            sizes: [
+
+                {
+                    size: "1",
+                    stock: 20
+                },
+
+                {
+                    size: "2",
+                    stock: 35
+                },
+
+                {
+                    size: "3",
+                    stock: 42
+                },
+
+                {
+                    size: "4",
+                    stock: 18
+                },
+
+                {
+                    size: "5",
+                    stock: 7
+                }
+
+            ]
+
+        },
+
+        {
+            id: 2,
+
+            name: "Товар 2",
+
+            owner: "manufacturer",
+
+            warehouse: 2,
+
+            sizes: [
+
+                {
+                    size: "1",
+                    stock: 50
+                },
+
+                {
+                    size: "2",
+                    stock: 80
+                },
+
+                {
+                    size: "3",
+                    stock: 70
+                },
+
+                {
+                    size: "4",
+                    stock: 45
+                },
+
+                {
+                    size: "5",
+                    stock: 20
+                }
+
+            ]
+
+        }
+
+    ],
+
+    orders: [
+
+        {
+            id: "WB-10001",
+            platform: 1,
+            account: 1,
+            product: 1,
+            size: "1",
+            quantity: 3
+        },
+
+        {
+            id: "WB-10002",
+            platform: 1,
+            account: 2,
+            product: 1,
+            size: "2",
+            quantity: 7
+        },
+
+        {
+            id: "WB-10003",
+            platform: 1,
+            account: 1,
+            product: 1,
+            size: "3",
+            quantity: 5
+        },
+
+        {
+            id: "OZ-20001",
+            platform: 2,
+            account: 3,
+            product: 1,
+            size: "3",
+            quantity: 7
+        },
+
+        {
+            id: "WB-10004",
+            platform: 1,
+            account: 2,
+            product: 1,
+            size: "4",
+            quantity: 2
+        },
+
+        {
+            id: "WB-10005",
+            platform: 1,
+            account: 1,
+            product: 1,
+            size: "5",
+            quantity: 1
+        }
+
+    ],
+
+    supplierOrders: [
+
+        {
+            product: 1,
+            size: "3",
+            quantity: 12
+        }
+
+    ]
+
+};
+
+
+/* =====================================================
+   LOCAL STORAGE
+===================================================== */
+
+let data =
+    JSON.parse(
+        localStorage.getItem("moySkladData")
+    );
+
+
+if (!data) {
+
+    data =
+        JSON.parse(
+            JSON.stringify(defaultData)
+        );
+
+    saveData();
+
+}
+
+
+function saveData() {
+
+    localStorage.setItem(
+        "moySkladData",
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* =====================================================
+   ПОИСК
+===================================================== */
+
+function product(id) {
+
+    return data.products.find(
+        x => x.id === id
+    );
+
+}
+
+
+function platform(id) {
+
+    return data.platforms.find(
+        x => x.id === id
+    );
+
+}
+
+
+function account(id) {
+
+    for (
+        const p of data.platforms
+    ) {
+
+        const a =
+            p.accounts.find(
+                x => x.id === id
+            );
+
+        if (a) return a;
 
     }
 
@@ -682,41 +664,32 @@ function getAccount(id) {
 }
 
 
-function getOrdered(productId, size) {
+function warehouse(id) {
 
-    return orders
-
-        .filter(
-            order =>
-                order.product === productId &&
-                order.size === size
-        )
-
-        .reduce(
-            (sum, order) =>
-                sum + order.quantity,
-
-            0
-        );
+    return data.warehouses.find(
+        x => x.id === id
+    );
 
 }
 
 
-function getTotalStock() {
+/* =====================================================
+   СТАТИСТИКА
+===================================================== */
 
-    return products.reduce(
+function totalStock() {
 
-        (sum, product) =>
+    return data.products.reduce(
+
+        (sum, p) =>
 
             sum +
 
-            product.sizes.reduce(
-
-                (s, size) =>
-                    s + size.stock,
+            p.sizes.reduce(
+                (s, x) =>
+                    s + Number(x.stock),
 
                 0
-
             ),
 
         0
@@ -726,73 +699,87 @@ function getTotalStock() {
 }
 
 
-function getTotalOrdered() {
+function totalOrders() {
 
-    return orders.reduce(
-
-        (sum, order) =>
-            sum + order.quantity,
+    return data.orders.reduce(
+        (sum, x) =>
+            sum + Number(x.quantity),
 
         0
-
     );
 
 }
 
 
-function getAccountsWithOrders() {
+function activeAccounts() {
 
     return new Set(
-
-        orders.map(
-            order => order.account
+        data.orders.map(
+            x => x.account
         )
-
     ).size;
 
 }
 
 
-function getSupplierNeed() {
+function orderedForProductSize(
+    productId,
+    size
+) {
 
-    return supplierOrders.reduce(
+    return data.orders
 
-        (sum, item) =>
-            sum + item.quantity,
+        .filter(
+            x =>
+                x.product === productId &&
+                x.size === size
+        )
+
+        .reduce(
+            (sum, x) =>
+                sum + Number(x.quantity),
+
+            0
+        );
+
+}
+
+
+function supplierNeed() {
+
+    return data.supplierOrders.reduce(
+        (sum, x) =>
+            sum + Number(x.quantity),
 
         0
-
     );
 
 }
 
 
-
-/* =========================================================
+/* =====================================================
    ГЛАВНАЯ
-========================================================= */
+===================================================== */
 
+function render() {
 
-function renderDashboard() {
+    const stock =
+        totalStock();
 
-    const totalStock =
-        getTotalStock();
+    const orders =
+        totalOrders();
 
-    const totalOrdered =
-        getTotalOrdered();
-
-    const freeStock =
-        totalStock - totalOrdered;
+    const free =
+        stock - orders;
 
     const accounts =
-        getAccountsWithOrders();
+        activeAccounts();
 
-    const supplierNeed =
-        getSupplierNeed();
+    const need =
+        supplierNeed();
 
 
     let html = `
-
 
         <div class="section">
 
@@ -806,17 +793,17 @@ function renderDashboard() {
 
                 <div
                     class="metric"
-                    onclick="showAllStock()">
+                    onclick="showTotalStock()">
 
-                    <div class="metric-title">
+                    <div class="metric-label">
                         Всего товара
                     </div>
 
                     <div class="metric-value">
-                        ${totalStock}
+                        ${stock}
                     </div>
 
-                    <div class="metric-unit">
+                    <div class="metric-label">
                         шт.
                     </div>
 
@@ -825,17 +812,17 @@ function renderDashboard() {
 
                 <div
                     class="metric"
-                    onclick="showAllOrders()">
+                    onclick="showTotalOrders()">
 
-                    <div class="metric-title">
+                    <div class="metric-label">
                         Заказано сегодня
                     </div>
 
                     <div class="metric-value">
-                        ${totalOrdered}
+                        ${orders}
                     </div>
 
-                    <div class="metric-unit">
+                    <div class="metric-label">
                         шт.
                     </div>
 
@@ -846,15 +833,15 @@ function renderDashboard() {
                     class="metric"
                     onclick="showFreeStock()">
 
-                    <div class="metric-title">
-                        Свободный остаток
+                    <div class="metric-label">
+                        Свободно
                     </div>
 
                     <div class="metric-value">
-                        ${freeStock}
+                        ${free}
                     </div>
 
-                    <div class="metric-unit">
+                    <div class="metric-label">
                         шт.
                     </div>
 
@@ -863,9 +850,9 @@ function renderDashboard() {
 
                 <div
                     class="metric"
-                    onclick="showAccountsWithOrders()">
+                    onclick="showActiveAccounts()">
 
-                    <div class="metric-title">
+                    <div class="metric-label">
                         Аккаунтов получили заказы
                     </div>
 
@@ -877,18 +864,18 @@ function renderDashboard() {
 
 
                 <div
-                    class="metric warning"
+                    class="metric"
                     onclick="showSupplierNeed()">
 
-                    <div class="metric-title">
+                    <div class="metric-label">
                         Нужно поставить
                     </div>
 
                     <div class="metric-value">
-                        ${supplierNeed}
+                        ${need}
                     </div>
 
-                    <div class="metric-unit">
+                    <div class="metric-label">
                         шт.
                     </div>
 
@@ -906,38 +893,54 @@ function renderDashboard() {
                 Склады
             </div>
 
-
     `;
 
 
-    warehouses.forEach(
-        warehouse => {
+    data.warehouses.forEach(
+        w => {
+
+            const stockInWarehouse =
+                data.products
+
+                    .filter(
+                        p =>
+                            p.warehouse === w.id
+                    )
+
+                    .reduce(
+
+                        (sum, p) =>
+
+                            sum +
+
+                            p.sizes.reduce(
+                                (s, x) =>
+                                    s + Number(x.stock),
+
+                                0
+                            ),
+
+                        0
+                    );
+
 
             html += `
 
                 <div
-                    class="card clickable"
+                    class="card warehouse clickable"
                     onclick="showWarehouse(
-                        ${warehouse.id}
+                        ${w.id}
                     )">
 
-                    <div class="warehouse-row">
+                    <div class="warehouse-name">
 
-                        <div class="warehouse-name">
+                        📍 ${w.name}
 
-                            📍 ${warehouse.name}
+                    </div>
 
-                        </div>
+                    <div>
 
-                        <div>
-
-                            ${totalStockForWarehouse(
-                                warehouse.id
-                            )}
-
-                            шт.
-
-                        </div>
+                        ${stockInWarehouse} шт.
 
                     </div>
 
@@ -965,7 +968,7 @@ function renderDashboard() {
 
 
     if (
-        products.length === 0
+        data.products.length === 0
     ) {
 
         html += `
@@ -981,26 +984,164 @@ function renderDashboard() {
     }
 
 
-    products.forEach(
-        product => {
+    data.products.forEach(
+        p => {
+
+            const w =
+                warehouse(
+                    p.warehouse
+                );
+
 
             html += `
 
-                <div
-                    class="card clickable"
-                    onclick="showProduct(
-                        ${product.id}
-                    )">
+                <div class="card">
 
-                    <div class="product-name">
+                    <div class="product-title">
 
-                        📦 ${product.name}
+                        📦 ${p.name}
 
                     </div>
 
                     <div class="product-subtitle">
 
-                        Нажмите для детализации
+                        📍 ${
+                            w
+                                ? w.name
+                                : "Склад не указан"
+                        }
+
+                    </div>
+
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Размер
+                                </th>
+
+                                <th>
+                                    Остаток
+                                </th>
+
+                                <th>
+                                    Заказано
+                                </th>
+
+                                <th>
+                                    Свободно
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+            `;
+
+
+            p.sizes.forEach(
+                s => {
+
+                    const ordered =
+                        orderedForProductSize(
+                            p.id,
+                            s.size
+                        );
+
+
+                    const free =
+                        Number(s.stock) -
+                        ordered;
+
+
+                    html += `
+
+                        <tr>
+
+                            <td>
+                                ${s.size}
+                            </td>
+
+                            <td
+                                class="number detail-link"
+                                onclick="showSizeDetails(
+                                    ${p.id},
+                                    '${s.size}'
+                                )">
+
+                                ${s.stock}
+
+                            </td>
+
+
+                            <td>
+
+                                <span
+                                    class="order-link"
+                                    onclick="showPlatforms(
+                                        ${p.id},
+                                        '${s.size}'
+                                    )">
+
+                                    ${ordered}
+
+                                </span>
+
+                            </td>
+
+
+                            <td
+                                class="detail-link"
+                                onclick="showFreeDetails(
+                                    ${p.id},
+                                    '${s.size}'
+                                )">
+
+                                ${free}
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                }
+
+            );
+
+
+            const productTotal =
+                p.sizes.reduce(
+                    (sum, s) =>
+                        sum + Number(s.stock),
+
+                    0
+                );
+
+
+            html += `
+
+                        </tbody>
+
+                    </table>
+
+
+                    <div class="total">
+
+                        <span>
+                            Всего
+                        </span>
+
+                        <span>
+                            ${productTotal} шт.
+                        </span>
 
                     </div>
 
@@ -1027,145 +1168,62 @@ function renderDashboard() {
 }
 
 
+/* =====================================================
+   ДАШБОРД — ДЕТАЛИ
+===================================================== */
 
-function totalStockForWarehouse(
-    warehouseId
-) {
-
-    /*
-        Пока один общий остаток.
-        Когда добавим распределение
-        товара по складам, здесь
-        появится настоящая логика.
-    */
-
-    return getTotalStock();
-
-}
-
-
-
-/* =========================================================
-   ТОВАР
-========================================================= */
-
-
-function showProduct(productId) {
-
-    const product =
-        getProduct(productId);
-
+function showTotalStock() {
 
     let html = `
 
-        <button
-            class="back-button"
-            onclick="closeModal()">
-
-            ← Назад
-
-        </button>
-
-
         <h2>
-            📦 ${product.name}
+            📦 Все остатки
         </h2>
-
-
-        <div class="small">
-
-            Размеры и остатки
-
-        </div>
-
-
-        <br>
-
-
-        <table>
-
-            <tr>
-
-                <th>
-                    Размер
-                </th>
-
-                <th>
-                    Остаток
-                </th>
-
-                <th>
-                    Заказано
-                </th>
-
-                <th>
-                    Свободно
-                </th>
-
-            </tr>
 
     `;
 
 
-    product.sizes.forEach(
-        size => {
+    data.products.forEach(
+        p => {
 
-            const ordered =
-                getOrdered(
-                    product.id,
-                    size.size
-                );
+            html += `
+
+                <div class="modal-item">
+
+                    <b>
+                        ${p.name}
+                    </b>
+
+            `;
 
 
-            const free =
-                size.stock - ordered;
+            p.sizes.forEach(
+                s => {
+
+                    html += `
+
+                        <div class="stat-row">
+
+                            <span>
+                                Размер ${s.size}
+                            </span>
+
+                            <b>
+                                ${s.stock} шт.
+                            </b>
+
+                        </div>
+
+                    `;
+
+                }
+
+            );
 
 
             html += `
 
-                <tr>
-
-                    <td>
-                        ${size.size}
-                    </td>
-
-
-                    <td
-                        class="link"
-                        onclick="showSizeDetails(
-                            ${product.id},
-                            '${size.size}'
-                        )">
-
-                        ${size.stock}
-
-                    </td>
-
-
-                    <td
-                        class="link"
-                        onclick="showPlatforms(
-                            ${product.id},
-                            '${size.size}'
-                        )">
-
-                        ${ordered}
-
-                    </td>
-
-
-                    <td
-                        class="link"
-                        onclick="showFreeDetails(
-                            ${product.id},
-                            '${size.size}'
-                        )">
-
-                        ${free}
-
-                    </td>
-
-                </tr>
+                </div>
 
             `;
 
@@ -1174,38 +1232,592 @@ function showProduct(productId) {
     );
 
 
-    html += `
+    openModal(html);
 
-        </table>
+}
+
+
+function showTotalOrders() {
+
+    let html = `
+
+        <h2>
+            📦 Заказано сегодня
+        </h2>
 
     `;
 
 
-    /*
-        Удаление только своего товара.
-        В этом прототипе Товар 1 —
-        товар производителя.
-    */
+    data.orders.forEach(
+        o => {
+
+            const p =
+                product(o.product);
+
+            const pl =
+                platform(o.platform);
+
+            const a =
+                account(o.account);
+
+
+            html += `
+
+                <div class="modal-item">
+
+                    <b>
+                        ${o.id}
+                    </b>
+
+                    <br>
+
+                    ${p ? p.name : ""}
+
+                    · размер ${o.size}
+
+                    · <b>
+                        ${o.quantity} шт.
+                    </b>
+
+                    <br>
+
+                    <span class="small">
+
+                        ${
+                            pl
+                                ? pl.name
+                                : ""
+                        }
+
+                        →
+
+                        ${
+                            a
+                                ? a.name
+                                : ""
+                        }
+
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    openModal(html);
+
+}
+
+
+function showFreeStock() {
+
+    let html = `
+
+        <h2>
+            Свободный остаток
+        </h2>
+
+    `;
+
+
+    data.products.forEach(
+        p => {
+
+            p.sizes.forEach(
+                s => {
+
+                    const ordered =
+                        orderedForProductSize(
+                            p.id,
+                            s.size
+                        );
+
+
+                    html += `
+
+                        <div class="stat-row">
+
+                            <span>
+
+                                ${p.name}
+
+                                · размер ${s.size}
+
+                            </span>
+
+                            <b>
+
+                                ${
+                                    Number(s.stock) -
+                                    ordered
+                                }
+                                шт.
+
+                            </b>
+
+                        </div>
+
+                    `;
+
+                }
+
+            );
+
+        }
+
+    );
+
+
+    openModal(html);
+
+}
+
+
+function showActiveAccounts() {
+
+    let html = `
+
+        <h2>
+            👤 Аккаунты с заказами
+        </h2>
+
+    `;
+
+
+    data.platforms.forEach(
+        pl => {
+
+            pl.accounts.forEach(
+                a => {
+
+                    const quantity =
+                        data.orders
+
+                            .filter(
+                                o =>
+                                    o.account === a.id
+                            )
+
+                            .reduce(
+                                (sum, o) =>
+                                    sum +
+                                    Number(o.quantity),
+
+                                0
+                            );
+
+
+                    if (
+                        quantity > 0
+                    ) {
+
+                        html += `
+
+                            <div class="modal-item">
+
+                                👤
+
+                                <b>
+                                    ${a.name}
+                                </b>
+
+                                <br>
+
+                                ${pl.name}
+
+                                <br>
+
+                                Заказано:
+
+                                <b>
+                                    ${quantity} шт.
+                                </b>
+
+                            </div>
+
+                        `;
+
+                    }
+
+                }
+
+            );
+
+        }
+
+    );
+
+
+    openModal(html);
+
+}
+
+
+function showSupplierNeed() {
+
+    let html = `
+
+        <h2>
+            ⚠️ Нужно поставить
+        </h2>
+
+        <p class="small">
+
+            Производитель обязан предоставить
+            товары, которые были заказаны.
+
+        </p>
+
+    `;
+
+
+    data.supplierOrders.forEach(
+        item => {
+
+            const p =
+                product(item.product);
+
+
+            if (!p) return;
+
+
+            html += `
+
+                <div class="modal-item">
+
+                    <b>
+                        ${p.name}
+                    </b>
+
+                    <br>
+
+                    Размер:
+                    ${item.size}
+
+                    <br>
+
+                    Нужно поставить:
+
+                    <b>
+                        ${item.quantity} шт.
+                    </b>
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    openModal(html);
+
+}
+
+
+/* =====================================================
+   РАЗМЕР
+===================================================== */
+
+function showSizeDetails(
+    productId,
+    size
+) {
+
+    const p =
+        product(productId);
+
+
+    const s =
+        p.sizes.find(
+            x =>
+                x.size === size
+        );
+
+
+    const ordered =
+        orderedForProductSize(
+            productId,
+            size
+        );
+
+
+    openModal(`
+
+        <button
+            class="back"
+            onclick="closeModal()">
+
+            ← Назад
+
+        </button>
+
+
+        <h2>
+            ${p.name}
+        </h2>
+
+
+        <p>
+            Размер:
+            <b>${size}</b>
+        </p>
+
+
+        <div class="stat-row">
+
+            <span>
+                Остаток
+            </span>
+
+            <b>
+                ${s.stock} шт.
+            </b>
+
+        </div>
+
+
+        <div
+            class="stat-row clickable"
+            onclick="showPlatforms(
+                ${productId},
+                '${size}'
+            )">
+
+            <span>
+                Заказано
+            </span>
+
+            <b class="detail-link">
+                ${ordered} шт.
+            </b>
+
+        </div>
+
+
+        <div class="stat-row">
+
+            <span>
+                Свободно
+            </span>
+
+            <b>
+                ${Number(s.stock) - ordered} шт.
+            </b>
+
+        </div>
+
+    `);
+
+}
+
+
+function showFreeDetails(
+    productId,
+    size
+) {
+
+    const p =
+        product(productId);
+
+
+    const s =
+        p.sizes.find(
+            x =>
+                x.size === size
+        );
+
+
+    const ordered =
+        orderedForProductSize(
+            productId,
+            size
+        );
+
+
+    openModal(`
+
+        <h2>
+            Свободный остаток
+        </h2>
+
+        <p>
+            ${p.name}
+            · размер ${size}
+        </p>
+
+
+        <div class="stat-row">
+
+            <span>
+                Остаток
+            </span>
+
+            <b>
+                ${s.stock} шт.
+            </b>
+
+        </div>
+
+
+        <div class="stat-row">
+
+            <span>
+                Заказано
+            </span>
+
+            <b>
+                ${ordered} шт.
+            </b>
+
+        </div>
+
+
+        <div class="stat-row">
+
+            <span>
+                Свободно
+            </span>
+
+            <b>
+                ${Number(s.stock) - ordered} шт.
+            </b>
+
+        </div>
+
+    `);
+
+}
+
+
+/* =====================================================
+   ЗАКАЗАНО → ПЛАТФОРМЫ
+===================================================== */
+
+function showPlatforms(
+    productId,
+    size
+) {
+
+    const filtered =
+        data.orders.filter(
+            o =>
+                o.product === productId &&
+                o.size === size
+        );
+
+
+    const groups = {};
+
+
+    filtered.forEach(
+        o => {
+
+            if (
+                !groups[o.platform]
+            ) {
+
+                groups[o.platform] = 0;
+
+            }
+
+
+            groups[o.platform] +=
+                Number(o.quantity);
+
+        }
+
+    );
+
+
+    let html = `
+
+        <button
+            class="back"
+            onclick="showSizeDetails(
+                ${productId},
+                '${size}'
+            )">
+
+            ← Назад
+
+        </button>
+
+
+        <h2>
+            🛒 Платформы
+        </h2>
+
+
+        <p>
+            ${product(productId).name}
+            · размер ${size}
+        </p>
+
+    `;
+
+
+    Object.keys(groups).forEach(
+        platformId => {
+
+            const pl =
+                platform(
+                    Number(platformId)
+                );
+
+
+            html += `
+
+                <div
+                    class="modal-item"
+                    onclick="showAccounts(
+                        ${platformId},
+                        ${productId},
+                        '${size}'
+                    )">
+
+                    <div class="platform">
+
+                        🛒
+                        ${pl.name}
+
+                    </div>
+
+                    <div>
+
+                        Заказано:
+
+                        <b>
+                            ${groups[platformId]} шт.
+                        </b>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    );
 
 
     if (
-        product.owner === "manufacturer"
+        Object.keys(groups).length === 0
     ) {
 
         html += `
 
-            <br>
+            <div class="empty">
 
+                Заказов нет.
 
-            <button
-                class="danger-button"
-                onclick="deleteProductAsk(
-                    ${product.id}
-                )">
-
-                🗑 Удалить товар
-
-            </button>
+            </div>
 
         `;
 
@@ -1217,41 +1829,29 @@ function showProduct(productId) {
 }
 
 
+/* =====================================================
+   ПЛАТФОРМА → АККАУНТЫ
+===================================================== */
 
-/* =========================================================
-   ДЕТАЛИЗАЦИЯ ОСТАТКА
-========================================================= */
-
-
-function showSizeDetails(
+function showAccounts(
+    platformId,
     productId,
-    sizeName
+    size
 ) {
 
-    const product =
-        getProduct(productId);
-
-
-    const size =
-        product.sizes.find(
-            item =>
-                item.size === sizeName
+    const pl =
+        platform(
+            Number(platformId)
         );
 
 
-    const ordered =
-        getOrdered(
-            productId,
-            sizeName
-        );
-
-
-    openModal(`
+    let html = `
 
         <button
-            class="back-button"
-            onclick="showProduct(
-                ${productId}
+            class="back"
+            onclick="showPlatforms(
+                ${productId},
+                '${size}'
             )">
 
             ← Назад
@@ -1260,155 +1860,1394 @@ function showSizeDetails(
 
 
         <h2>
-            ${product.name}
+            🛒 ${pl.name}
         </h2>
 
 
-        <div class="card">
+        <p>
+            Размер:
+            <b>${size}</b>
+        </p>
 
-            <div class="small">
-                Размер
-            </div>
-
-            <h2>
-                ${sizeName}
-            </h2>
+    `;
 
 
-            <div class="total">
+    pl.accounts.forEach(
+        a => {
 
-                <span>
-                    Остаток
-                </span>
+            const quantity =
+                data.orders
 
-                <span>
-                    ${size.stock} шт.
-                </span>
+                    .filter(
+                        o =>
+                            o.account === a.id &&
+                            o.product === productId &&
+                            o.size === size
+                    )
 
-            </div>
+                    .reduce(
+                        (sum, o) =>
+                            sum +
+                            Number(o.quantity),
 
+                        0
+                    );
+
+
+            if (
+                quantity > 0
+            ) {
+
+                html += `
+
+                    <div
+                        class="modal-item"
+                        onclick="showOrders(
+                            ${platformId},
+                            ${a.id},
+                            ${productId},
+                            '${size}'
+                        )">
+
+                        👤
+
+                        <b>
+                            ${a.name}
+                        </b>
+
+                        <br>
+
+                        Заказано:
+
+                        <b>
+                            ${quantity} шт.
+                        </b>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+    );
+
+
+    openModal(html);
+
+}
+
+
+/* =====================================================
+   АККАУНТ → ЗАКАЗЫ
+===================================================== */
+
+function showOrders(
+    platformId,
+    accountId,
+    productId,
+    size
+) {
+
+    const pl =
+        platform(
+            Number(platformId)
+        );
+
+
+    const a =
+        account(
+            Number(accountId)
+        );
+
+
+    const orders =
+        data.orders.filter(
+            o =>
+                o.platform === Number(platformId) &&
+                o.account === Number(accountId) &&
+                o.product === productId &&
+                o.size === size
+        );
+
+
+    let html = `
+
+        <button
+            class="back"
+            onclick="showAccounts(
+                ${platformId},
+                ${productId},
+                '${size}'
+            )">
+
+            ← Назад
+
+        </button>
+
+
+        <h2>
+            👤 ${a.name}
+        </h2>
+
+
+        <p>
+            Платформа:
+            <b>${pl.name}</b>
+        </p>
+
+
+        <p>
+            Размер:
+            <b>${size}</b>
+        </p>
+
+
+        <h3>
+            Заказы сегодня
+        </h3>
+
+    `;
+
+
+    orders.forEach(
+        o => {
+
+            html += `
+
+                <div class="modal-item">
+
+                    <b>
+                        ${o.id}
+                    </b>
+
+                    <br>
+
+                    ${product(o.product).name}
+
+                    · размер ${o.size}
+
+                    · ${o.quantity} шт.
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    openModal(html);
+
+}
+
+
+/* =====================================================
+   СКЛАД
+===================================================== */
+
+function showWarehouse(
+    warehouseId
+) {
+
+    const w =
+        warehouse(
+            warehouseId
+        );
+
+
+    let html = `
+
+        <h2>
+            📍 ${w.name}
+        </h2>
+
+        <p class="small">
+            Товары на складе
+        </p>
+
+    `;
+
+
+    data.products
+
+        .filter(
+            p =>
+                p.warehouse === warehouseId
+        )
+
+        .forEach(
+            p => {
+
+                const total =
+                    p.sizes.reduce(
+                        (sum, s) =>
+                            sum +
+                            Number(s.stock),
+
+                        0
+                    );
+
+
+                html += `
+
+                    <div class="modal-item">
+
+                        📦
+
+                        <b>
+                            ${p.name}
+                        </b>
+
+                        <br>
+
+                        Остаток:
+                        <b>
+                            ${total} шт.
+                        </b>
+
+                    </div>
+
+                `;
+
+            }
+
+        );
+
+
+    openModal(html);
+
+}
+
+
+/* =====================================================
+   МЕНЮ
+===================================================== */
+
+function openMenu() {
+
+    let html = `
+
+        <h2>
+            ☰ Управление
+        </h2>
+
+
+        <div class="menu-section">
+
+            <h3>
+                🏢 Склады
+            </h3>
+
+    `;
+
+
+    data.warehouses.forEach(
+        w => {
+
+            html += `
+
+                <div class="menu-row">
+
+                    <div
+                        style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+                        ">
+
+                        <span>
+                            📍 ${w.name}
+                        </span>
+
+                        <button
+                            class="delete"
+                            onclick="deleteWarehouseAsk(
+                                ${w.id}
+                            )">
+
+                            Удалить
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    html += `
 
             <div
-                class="total clickable"
-                onclick="showPlatforms(
-                    ${productId},
-                    '${sizeName}'
-                )">
+                class="menu-row plus"
+                onclick="addWarehouse()">
 
-                <span>
-                    Заказано
-                </span>
-
-                <span class="link">
-                    ${ordered} шт.
-                </span>
-
-            </div>
-
-
-            <div class="total">
-
-                <span>
-                    Свободно
-                </span>
-
-                <span>
-                    ${size.stock - ordered} шт.
-                </span>
+                ＋ Добавить склад
 
             </div>
 
         </div>
+
+
+        <div class="menu-section">
+
+            <h3>
+                🛒 Платформы
+            </h3>
+
+    `;
+
+
+    data.platforms.forEach(
+        p => {
+
+            html += `
+
+                <div class="menu-row platform">
+
+                    🛒 ${p.name}
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    html += `
+
+            <div
+                class="menu-row plus"
+                onclick="addPlatform()">
+
+                ＋ Добавить платформу
+
+            </div>
+
+        </div>
+
+
+        <div class="menu-section">
+
+            <h3>
+                👤 Аккаунты
+            </h3>
+
+    `;
+
+
+    data.platforms.forEach(
+        (p, index) => {
+
+            html += `
+
+                <div class="menu-row">
+
+                    <div class="platform">
+                        ${p.name}
+                    </div>
+
+            `;
+
+
+            p.accounts.forEach(
+                a => {
+
+                    html += `
+
+                        <div
+                            class="account"
+                            style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            ">
+
+                            <span>
+                                └ ${a.name}
+                            </span>
+
+                            <button
+                                class="delete"
+                                onclick="deleteAccountAsk(
+                                    ${a.id}
+                                )">
+
+                                Удалить
+
+                            </button>
+
+                        </div>
+
+                    `;
+
+                }
+
+            );
+
+
+            html += `
+
+                    <div
+                        class="account plus"
+                        onclick="addAccount(
+                            ${p.id}
+                        )">
+
+                        ＋ Добавить аккаунт
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    html += `
+
+        </div>
+
+
+        <div class="menu-section">
+
+            <h3>
+                📦 Товары
+            </h3>
+
+
+            <div
+                class="menu-row plus"
+                onclick="addProduct()">
+
+                ＋ Добавить товар
+
+            </div>
+
+    `;
+
+
+    data.products.forEach(
+        p => {
+
+            html += `
+
+                <div class="menu-row">
+
+                    <div
+                        style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+                        ">
+
+                        <span>
+                            📦 ${p.name}
+                        </span>
+
+                        <button
+                            class="delete"
+                            onclick="deleteProductAsk(
+                                ${p.id}
+                            )">
+
+                            Удалить
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+
+    html += `
+
+        </div>
+
+    `;
+
+
+    openModal(html);
+
+}
+
+
+/* =====================================================
+   ДОБАВЛЕНИЕ
+===================================================== */
+
+function addWarehouse() {
+
+    openModal(`
+
+        <h2>
+            ＋ Добавить склад
+        </h2>
+
+
+        <label>
+            Город / название
+        </label>
+
+
+        <input
+            id="warehouseName"
+            placeholder="Например: Воронеж">
+
+
+        <button
+            class="save"
+            onclick="saveWarehouse()">
+
+            Добавить
+
+        </button>
 
     `);
 
 }
 
 
+function saveWarehouse() {
 
-/* =========================================================
-   ЗАКАЗАНО → ПЛАТФОРМЫ
-========================================================= */
+    const name =
+        document
+            .getElementById(
+                "warehouseName"
+            )
+            .value
+            .trim();
 
 
-function showPlatforms(
-    productId,
-    sizeName
-) {
+    if (!name) {
 
-    const filtered =
-        orders.filter(
-
-            order =>
-
-                order.product === productId &&
-                order.size === sizeName
-
+        alert(
+            "Введите название."
         );
 
+        return;
 
-    let grouped = {};
-
-
-    filtered.forEach(
-        order => {
-
-            if (
-                !grouped[order.platform]
-            ) {
-
-                grouped[order.platform] = 0;
-
-            }
+    }
 
 
-            grouped[order.platform] +=
-                order.quantity;
+    data.warehouses.push({
 
-        }
-    );
+        id: Date.now(),
+
+        name: name
+
+    });
 
 
-    let html = `
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+function addPlatform() {
+
+    openModal(`
+
+        <h2>
+            ＋ Добавить платформу
+        </h2>
+
+
+        <label>
+            Название платформы
+        </label>
+
+
+        <input
+            id="platformName"
+            placeholder="Например: Яндекс Маркет">
+
 
         <button
-            class="back-button"
-            onclick="showProduct(
-                ${productId}
-            )">
+            class="save"
+            onclick="savePlatform()">
 
-            ← Назад
+            Добавить
 
         </button>
 
+    `);
+
+}
+
+
+function savePlatform() {
+
+    const name =
+        document
+            .getElementById(
+                "platformName"
+            )
+            .value
+            .trim();
+
+
+    if (!name) {
+
+        alert(
+            "Введите название."
+        );
+
+        return;
+
+    }
+
+
+    data.platforms.push({
+
+        id: Date.now(),
+
+        name: name,
+
+        accounts: []
+
+    });
+
+
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+function addAccount(
+    platformId
+) {
+
+    const p =
+        platform(
+            platformId
+        );
+
+
+    openModal(`
 
         <h2>
-            Заказано
+            ＋ Добавить аккаунт
         </h2>
 
 
         <p class="small">
 
-            Платформы
+            Платформа:
+            <b>
+                ${p.name}
+            </b>
 
         </p>
 
-    `;
+
+        <label>
+            Название аккаунта
+        </label>
 
 
-    Object.keys(grouped)
-        .forEach(
-            platformId => {
-
-                const platform =
-                    getPlatform(
-                        Number(platformId)
-                    );
+        <input
+            id="accountName"
+            placeholder="Например: Основной">
 
 
-                html += `
+        <button
+            class="save"
+            onclick="saveAccount(
+                ${platformId}
+            )">
 
-                    <div
-                        class="modal-row"
-                        onclick="showPlatformAccounts(
-       
+            Добавить
+
+        </button>
+
+    `);
+
+}
+
+
+function saveAccount(
+    platformId
+) {
+
+    const name =
+        document
+            .getElementById(
+                "accountName"
+            )
+            .value
+            .trim();
+
+
+    if (!name) {
+
+        alert(
+            "Введите название."
+        );
+
+        return;
+
+    }
+
+
+    const p =
+        platform(
+            platformId
+        );
+
+
+    p.accounts.push({
+
+        id: Date.now(),
+
+        name: name
+
+    });
+
+
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+function addProduct() {
+
+    let warehouseOptions = "";
+
+
+    data.warehouses.forEach(
+        w => {
+
+            warehouseOptions += `
+
+                <option value="${w.id}">
+
+                    ${w.name}
+
+                </option>
+
+            `;
+
+        }
+    );
+
+
+    openModal(`
+
+        <h2>
+            ＋ Добавить товар
+        </h2>
+
+
+        <label>
+            Название товара
+        </label>
+
+
+        <input
+            id="productName"
+            placeholder="Например: Футболка">
+
+
+        <label>
+            Склад
+        </label>
+
+
+        <select id="productWarehouse">
+
+            ${warehouseOptions}
+
+        </select>
+
+
+        <label>
+            Размеры через запятую
+        </label>
+
+
+        <input
+            id="productSizes"
+            placeholder="1,2,3,4,5">
+
+
+        <label>
+            Остатки через запятую
+        </label>
+
+
+        <input
+            id="productStocks"
+            placeholder="20,35,42,18,7">
+
+
+        <button
+            class="save"
+            onclick="saveProduct()">
+
+            Добавить товар
+
+        </button>
+
+    `);
+
+}
+
+
+function saveProduct() {
+
+    const name =
+        document
+            .getElementById(
+                "productName"
+            )
+            .value
+            .trim();
+
+
+    const warehouseId =
+        Number(
+            document
+                .getElementById(
+                    "productWarehouse"
+                )
+                .value
+        );
+
+
+    const sizes =
+        document
+            .getElementById(
+                "productSizes"
+            )
+            .value
+            .split(",")
+            .map(
+                x =>
+                    x.trim()
+            );
+
+
+    const stocks =
+        document
+            .getElementById(
+                "productStocks"
+            )
+            .value
+            .split(",")
+            .map(
+                x =>
+                    Number(x.trim())
+            );
+
+
+    if (!name) {
+
+        alert(
+            "Введите название товара."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        sizes.length !==
+        stocks.length
+    ) {
+
+        alert(
+            "Количество размеров и остатков должно совпадать."
+        );
+
+        return;
+
+    }
+
+
+    data.products.push({
+
+        id: Date.now(),
+
+        name: name,
+
+        owner: "manufacturer",
+
+        warehouse: warehouseId,
+
+        sizes:
+
+            sizes.map(
+                (size, index) => ({
+
+                    size: size,
+
+                    stock:
+                        stocks[index] || 0
+
+                })
+
+            )
+
+    });
+
+
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+/* =====================================================
+   УДАЛЕНИЕ
+===================================================== */
+
+function deleteProductAsk(
+    productId
+) {
+
+    const p =
+        product(productId);
+
+
+    const obligation =
+        data.supplierOrders
+
+            .filter(
+                x =>
+                    x.product === productId
+            )
+
+            .reduce(
+                (sum, x) =>
+                    sum +
+                    Number(x.quantity),
+
+                0
+            );
+
+
+    if (
+        obligation > 0
+    ) {
+
+        openModal(`
+
+            <h2>
+                ⚠️ Удаление невозможно
+            </h2>
+
+
+            <div class="warning">
+
+                У товара
+
+                <b>
+                    ${p.name}
+                </b>
+
+                есть незакрытое обязательство.
+
+                <br><br>
+
+                Производитель обязан предоставить:
+
+                <b>
+                    ${obligation} шт.
+                </b>
+
+            </div>
+
+
+            <button
+                class="secondary"
+                onclick="closeModal()">
+
+                Понятно
+
+            </button>
+
+        `);
+
+        return;
+
+    }
+
+
+    confirmDeletion(
+        "товар",
+        p.name,
+        () =>
+            finalDeleteProduct(
+                productId
+            )
+    );
+
+}
+
+
+function deleteWarehouseAsk(
+    warehouseId
+) {
+
+    const w =
+        warehouse(
+            warehouseId
+        );
+
+
+    confirmDeletion(
+        "склад",
+        w.name,
+        () =>
+            finalDeleteWarehouse(
+                warehouseId
+            )
+    );
+
+}
+
+
+function deleteAccountAsk(
+    accountId
+) {
+
+    const a =
+        account(
+            accountId
+        );
+
+
+    confirmDeletion(
+        "аккаунт",
+        a.name,
+        () =>
+            finalDeleteAccount(
+                accountId
+            )
+    );
+
+}
+
+
+function confirmDeletion(
+    type,
+    name,
+    callback
+) {
+
+    window.pendingDelete =
+        callback;
+
+
+    openModal(`
+
+        <h2>
+            Удаление ${type}
+        </h2>
+
+
+        <p>
+
+            Вы действительно хотите удалить:
+
+        </p>
+
+
+        <p>
+            <b>
+                ${name}
+            </b>
+        </p>
+
+
+        <p class="small">
+
+            После подтверждения действие
+            нельзя будет отменить.
+
+        </p>
+
+
+        <button
+            class="save"
+            onclick="showDeleteConfirmation()">
+
+            Да, продолжить
+
+        </button>
+
+
+        <button
+            class="secondary"
+            onclick="closeModal()">
+
+            Отмена
+
+        </button>
+
+    `);
+
+}
+
+
+function showDeleteConfirmation() {
+
+    openModal(`
+
+        <h2>
+            ⚠️ Последнее подтверждение
+        </h2>
+
+
+        <p>
+
+            Чтобы окончательно удалить объект,
+            введите слово:
+
+        </p>
+
+
+        <p>
+
+            <b>
+                УДАЛИТЬ
+            </b>
+
+        </p>
+
+
+        <input
+            id="deleteWord"
+            placeholder="Введите УДАЛИТЬ">
+
+
+        <button
+            class="save"
+            onclick="finishDelete()">
+
+            Удалить окончательно
+
+        </button>
+
+    `);
+
+}
+
+
+function finishDelete() {
+
+    const word =
+        document
+            .getElementById(
+                "deleteWord"
+            )
+            .value
+            .trim();
+
+
+    if (
+        word !== "УДАЛИТЬ"
+    ) {
+
+        alert(
+            "Введите слово УДАЛИТЬ."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        typeof window.pendingDelete ===
+        "function"
+    ) {
+
+        window.pendingDelete();
+
+    }
+
+}
+
+
+function finalDeleteProduct(
+    productId
+) {
+
+    data.products =
+        data.products.filter(
+            p =>
+                p.id !== productId
+        );
+
+
+    data.orders =
+        data.orders.filter(
+            o =>
+                o.product !== productId
+        );
+
+
+    data.supplierOrders =
+        data.supplierOrders.filter(
+            o =>
+                o.product !== productId
+        );
+
+
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+function finalDeleteWarehouse(
+    warehouseId
+) {
+
+    const hasProducts =
+        data.products.some(
+            p =>
+                p.warehouse === warehouseId
+        );
+
+
+    if (
+        hasProducts
+    ) {
+
+        alert(
+            "Нельзя удалить склад, пока на нём есть товары."
+        );
+
+        return;
+
+    }
+
+
+    data.warehouses =
+        data.warehouses.filter(
+            w =>
+                w.id !== warehouseId
+        );
+
+
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+function finalDeleteAccount(
+    accountId
+) {
+
+    data.platforms.forEach(
+        p => {
+
+            p.accounts =
+                p.accounts.filter(
+                    a =>
+                        a.id !== accountId
+                );
+
+        }
+    );
+
+
+    data.orders =
+        data.orders.filter(
+            o =>
+                o.account !== accountId
+        );
+
+
+    saveData();
+
+    closeModal();
+
+    render();
+
+}
+
+
+/* =====================================================
+   ОКНО
+===================================================== */
+
+function openModal(
+    html
+) {
+
+    document.getElementById(
+        "modalContent"
+    ).innerHTML = html;
+
+
+    document.getElementById(
+        "modal"
+    ).style.display = "block";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById(
+        "modal"
+    ).style.display = "none";
+
+}
+
+
+/* =====================================================
+   ЗАПУСК
+===================================================== */
+
+render();
+
+</script>
+
+</body>
+</html>
