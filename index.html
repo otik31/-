@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Мой склад</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -13,332 +15,191 @@
 body {
     margin: 0;
     background: #f4f5f7;
-    color: #111;
     font-family: Arial, sans-serif;
-}
-
-.header {
-    background: #111;
-    color: #fff;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 21px;
-}
-
-.menu-btn {
-    border: 0;
-    background: #333;
-    color: white;
-    border-radius: 9px;
-    padding: 9px 12px;
-    font-size: 18px;
+    color: #111;
 }
 
 .container {
-    max-width: 720px;
+    max-width: 500px;
     margin: auto;
-    padding: 15px;
+    padding: 20px;
 }
 
-.section {
-    margin-bottom: 22px;
-}
-
-.section-title {
-    font-size: 18px;
+.logo {
+    text-align: center;
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.metric {
-    background: white;
-    padding: 15px;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
-    cursor: pointer;
-}
-
-.metric:active,
-.clickable:active {
-    transform: scale(.98);
-}
-
-.metric-label {
-    color: #777;
-    font-size: 13px;
-}
-
-.metric-value {
-    font-size: 27px;
-    font-weight: bold;
-    margin-top: 7px;
+    margin: 30px 0;
 }
 
 .card {
     background: white;
-    border-radius: 14px;
-    padding: 15px;
-    margin-bottom: 10px;
-}
-
-.clickable {
-    cursor: pointer;
-}
-
-.warehouse {
-    display: flex;
-    justify-content: space-between;
-}
-
-.warehouse-name {
-    font-weight: bold;
-}
-
-.product-title {
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
-    text-align: left;
-    color: #777;
-    font-size: 12px;
-    padding: 7px 4px;
-}
-
-td {
-    padding: 10px 4px;
-    border-top: 1px solid #eee;
-}
-
-.number {
-    font-weight: bold;
-}
-
-.link {
-    color: #1266ff;
-    text-decoration: underline;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.total {
-    border-top: 1px solid #eee;
-    margin-top: 12px;
-    padding-top: 12px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
-.add-button {
-    width: 100%;
-    padding: 13px;
-    border: 2px dashed #ccc;
-    background: white;
-    border-radius: 11px;
-}
-
-.danger {
-    color: #d00000;
-}
-
-.warning {
-    background: #fff7d6;
-    border: 1px solid #ead27c;
-}
-
-.success {
-    background: #e9f8ed;
-    border: 1px solid #a8d9b1;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.5);
-    z-index: 100;
-    padding: 15px;
-}
-
-.modal-box {
-    background: white;
-    max-width: 520px;
-    margin: 25px auto;
     border-radius: 16px;
     padding: 20px;
-    max-height: 88vh;
-    overflow-y: auto;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
 }
 
-.close {
-    float: right;
-    font-size: 26px;
-    cursor: pointer;
+h2 {
+    margin-top: 0;
 }
 
-.modal-row {
-    padding: 13px 5px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #555;
 }
 
-.modal-row:hover {
-    background: #f6f6f6;
-}
-
-.back {
-    border: 0;
-    background: #eee;
-    padding: 9px 12px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-}
-
-.primary {
+input {
     width: 100%;
-    background: #111;
-    color: white;
-    border: 0;
     padding: 13px;
-    border-radius: 9px;
-    font-size: 15px;
-}
-
-.secondary {
-    width: 100%;
-    background: #eee;
-    color: #111;
-    border: 0;
-    padding: 13px;
-    border-radius: 9px;
-    font-size: 15px;
-}
-
-.delete-btn {
-    background: #ffe5e5;
-    color: #c00000;
-    border: 0;
-    padding: 9px 12px;
-    border-radius: 8px;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 12px;
-    margin: 6px 0 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
+    border-radius: 9px;
+    font-size: 16px;
 }
 
-.role-card {
+.role {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 14px;
-    margin: 8px 0;
+    margin-top: 10px;
     cursor: pointer;
 }
 
-.role-card.selected {
+.role.selected {
     border: 2px solid #111;
+    background: #f5f5f5;
 }
 
-.menu-group {
-    margin-top: 20px;
-}
-
-.menu-group h3 {
-    margin-bottom: 7px;
-}
-
-.menu-item {
-    padding: 13px 5px;
-    border-bottom: 1px solid #eee;
-}
-
-.plus {
-    color: #1266ff;
+.role-title {
+    font-size: 17px;
     font-weight: bold;
-    cursor: pointer;
 }
 
-.small {
+.role-description {
+    margin-top: 5px;
     color: #777;
     font-size: 13px;
 }
 
-.badge {
-    display: inline-block;
-    background: #eee;
-    border-radius: 20px;
-    padding: 4px 8px;
-    font-size: 12px;
-    margin-left: 5px;
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: 0;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    font-size: 16px;
 }
 
-.empty {
-    color: #777;
-    text-align: center;
-    padding: 20px;
+.error {
+    color: #c00000;
+    margin-top: 10px;
+    font-size: 14px;
 }
+
 </style>
 </head>
 
-
 <body>
 
+<div class="container">
 
-<div class="header">
+    <div class="logo">
+        📦 Мой склад
+    </div>
 
-    <h1>📦 Мой склад</h1>
+    <div class="card">
 
-    <button
-        class="menu-btn"
-        onclick="openMenu()">
-        ☰
-    </button>
+        <h2>
+            Создание аккаунта
+        </h2>
 
-</div>
+        <p>
+            Для начала работы заполните данные.
+        </p>
+
+        <label>
+            Имя
+        </label>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Введите имя">
 
 
-<div class="container" id="app"></div>
+        <label>
+            Номер телефона
+        </label>
+
+        <input
+            id="phone"
+            type="tel"
+            placeholder="+7 999 999-99-99">
 
 
-<div class="modal" id="modal">
+        <h3>
+            Кто вы?
+        </h3>
 
-    <div class="modal-box">
 
-        <span
-            class="close"
-            onclick="closeModal()">
-            ×
-        </span>
+        <div
+            class="role"
+            onclick="chooseRole('seller', this)">
 
-        <div id="modalContent"></div>
+            <div class="role-title">
+                🛒 Селлер
+            </div>
+
+            <div class="role-description">
+                Продаю товары производителей.
+            </div>
+
+        </div>
+
+
+        <div
+            class="role"
+            onclick="chooseRole('manufacturer', this)">
+
+            <div class="role-title">
+                🏭 Производитель
+            </div>
+
+            <div class="role-description">
+                Производю и размещаю свои товары.
+            </div>
+
+        </div>
+
+
+        <div
+            class="role"
+            onclick="chooseRole('both', this)">
+
+            <div class="role-title">
+                🔄 Производитель + Селлер
+            </div>
+
+            <div class="role-description">
+                Производю свои товары и продаю товары.
+            </div>
+
+        </div>
+
+
+        <div
+            id="error"
+            class="error">
+        </div>
+
+
+        <button onclick="register()">
+            Продолжить
+        </button>
 
     </div>
 
@@ -347,231 +208,20 @@ select {
 
 <script>
 
-/* =========================================================
-   ДАННЫЕ ПРОТОТИПА
-========================================================= */
-
-let currentUser = null;
-
-let warehouses = [
-    {
-        id: 1,
-        name: "Белгород"
-    },
-    {
-        id: 2,
-        name: "Москва"
-    }
-];
-
-let platforms = [
-    {
-        id: 1,
-        name: "Wildberries",
-        accounts: [
-            {
-                id: 1,
-                name: "WB Аккаунт 1"
-            },
-            {
-                id: 2,
-                name: "WB Аккаунт 2"
-            }
-        ]
-    },
-    {
-        id: 2,
-        name: "Ozon",
-        accounts: [
-            {
-                id: 3,
-                name: "Ozon Аккаунт 1"
-            }
-        ]
-    }
-];
-
-let products = [
-    {
-        id: 1,
-        name: "Товар 1",
-        owner: "manufacturer",
-        sizes: [
-            {
-                size: "1",
-                stock: 20,
-                ordered: 3,
-                supplierOrders: 0
-            },
-            {
-                size: "2",
-                stock: 35,
-                ordered: 7,
-                supplierOrders: 0
-            },
-            {
-                size: "3",
-                stock: 42,
-                ordered: 12,
-                supplierOrders: 15
-            },
-            {
-                size: "4",
-                stock: 18,
-                ordered: 2,
-                supplierOrders: 0
-            },
-            {
-                size: "5",
-                stock: 7,
-                ordered: 1,
-                supplierOrders: 0
-            }
-        ]
-    }
-];
-
-
-/*
-    Заказы нужны только для демонстрации
-*/
-
-let orders = [
-    {
-        id: "WB-10001",
-        platform: 1,
-        account: 1,
-        product: 1,
-        size: "3",
-        quantity: 5
-    },
-    {
-        id: "WB-10002",
-        platform: 1,
-        account: 2,
-        product: 1,
-        size: "3",
-        quantity: 3
-    },
-    {
-        id: "OZ-20001",
-        platform: 2,
-        account: 3,
-        product: 1,
-        size: "3",
-        quantity: 4
-    }
-];
-
-
-/* =========================================================
-   РЕГИСТРАЦИЯ
-========================================================= */
-
-function showRegistration() {
-
-    document.getElementById("app").innerHTML = `
-
-        <div class="section">
-
-            <div class="card">
-
-                <h2>
-                    Добро пожаловать
-                </h2>
-
-                <p class="small">
-                    Создайте минимальный профиль.
-                </p>
-
-                <label>
-                    Имя
-                </label>
-
-                <input
-                    id="regName"
-                    placeholder="Ваше имя">
-
-                <label>
-                    Номер телефона
-                </label>
-
-                <input
-                    id="regPhone"
-                    placeholder="+7 999 999-99-99">
-
-                <h3>
-                    Кто вы?
-                </h3>
-
-                <div
-                    class="role-card"
-                    onclick="selectRole('seller', this)">
-
-                    🛒 <b>Селлер</b>
-
-                    <div class="small">
-                        Продаю товары других производителей
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="role-card"
-                    onclick="selectRole('manufacturer', this)">
-
-                    🏭 <b>Производитель</b>
-
-                    <div class="small">
-                        Производю и размещаю свои товары
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="role-card"
-                    onclick="selectRole('both', this)">
-
-                    🔄 <b>Производитель + Селлер</b>
-
-                    <div class="small">
-                        Производю свои товары и продаю товары
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="primary"
-                    onclick="register()">
-
-                    Продолжить
-
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
 let selectedRole = null;
 
 
-function selectRole(role, element) {
+function chooseRole(role, element) {
 
     selectedRole = role;
 
     document
-        .querySelectorAll(".role-card")
-        .forEach(el =>
-            el.classList.remove("selected")
-        );
+        .querySelectorAll(".role")
+        .forEach(item => {
+
+            item.classList.remove("selected");
+
+        });
 
     element.classList.add("selected");
 
@@ -581,629 +231,111 @@ function selectRole(role, element) {
 function register() {
 
     const name =
-        document.getElementById("regName").value.trim();
+        document
+        .getElementById("name")
+        .value
+        .trim();
 
     const phone =
-        document.getElementById("regPhone").value.trim();
+        document
+        .getElementById("phone")
+        .value
+        .trim();
+
+    const error =
+        document.getElementById("error");
 
 
-    if (!name || !phone || !selectedRole) {
+    if (!name) {
 
-        alert(
-            "Заполните имя, телефон и выберите роль."
-        );
+        error.innerText =
+            "Введите имя.";
 
         return;
 
     }
 
 
-    currentUser = {
+    if (!phone) {
 
-        name: name,
+        error.innerText =
+            "Введите номер телефона.";
 
-        phone: phone,
-
-        role: selectedRole
-
-    };
-
-
-    renderDashboard();
-
-}
-
-
-
-/* =========================================================
-   ПРОВЕРКА РОЛЕЙ
-========================================================= */
-
-function canManageProducts() {
-
-    return (
-        currentUser.role === "manufacturer" ||
-        currentUser.role === "both"
-    );
-
-}
-
-
-function roleName() {
-
-    if (currentUser.role === "seller")
-        return "Селлер";
-
-    if (currentUser.role === "manufacturer")
-        return "Производитель";
-
-    return "Производитель + Селлер";
-
-}
-
-
-
-/* =========================================================
-   ДАШБОРД
-========================================================= */
-
-function renderDashboard() {
-
-    const totalStock =
-        products.reduce(
-            (sum, product) =>
-                sum +
-                product.sizes.reduce(
-                    (s, x) => s + x.stock,
-                    0
-                ),
-            0
-        );
-
-
-    const totalOrders =
-        orders.reduce(
-            (sum, order) =>
-                sum + order.quantity,
-            0
-        );
-
-
-    const freeStock =
-        totalStock - totalOrders;
-
-
-    const uniqueAccounts =
-        new Set(
-            orders.map(order =>
-                order.account
-            )
-        ).size;
-
-
-    const supplierNeed =
-        products.reduce(
-            (sum, product) =>
-                sum +
-                product.sizes.reduce(
-                    (s, x) =>
-                        s + (x.supplierOrders || 0),
-                    0
-                ),
-            0
-        );
-
-
-    let html = `
-
-        <div class="section">
-
-            <div class="card">
-
-                <div class="small">
-                    Вы вошли как
-                </div>
-
-                <h2>
-                    ${currentUser.name}
-                </h2>
-
-                <span class="badge">
-                    ${roleName()}
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="section">
-
-            <div class="section-title">
-                Сегодня
-            </div>
-
-
-            <div class="dashboard">
-
-
-                <div
-                    class="metric"
-                    onclick="showStockDetails()">
-
-                    <div class="metric-label">
-                        Всего товара
-                    </div>
-
-                    <div class="metric-value">
-                        ${totalStock}
-                    </div>
-
-                    <div class="metric-label">
-                        шт.
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="metric"
-                    onclick="showOrdersDetails()">
-
-                    <div class="metric-label">
-                        Заказано сегодня
-                    </div>
-
-                    <div class="metric-value">
-                        ${totalOrders}
-                    </div>
-
-                    <div class="metric-label">
-                        шт.
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="metric"
-                    onclick="showFreeDetails()">
-
-                    <div class="metric-label">
-                        Свободно
-                    </div>
-
-                    <div class="metric-value">
-                        ${freeStock}
-                    </div>
-
-                    <div class="metric-label">
-                        шт.
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="metric"
-                    onclick="showAccountsDetails()">
-
-                    <div class="metric-label">
-                        Аккаунтов получили заказы
-                    </div>
-
-                    <div class="metric-value">
-                        ${uniqueAccounts}
-                    </div>
-
-                </div>
-
-    `;
-
-
-    if (canManageProducts()) {
-
-        html += `
-
-            <div
-                class="metric warning"
-                onclick="showSupplierNeed()">
-
-                <div class="metric-label">
-                    Производителю нужно поставить
-                </div>
-
-                <div class="metric-value">
-                    ${supplierNeed}
-                </div>
-
-                <div class="metric-label">
-                    шт.
-                </div>
-
-            </div>
-
-        `;
+        return;
 
     }
 
 
-    html += `
+    if (!selectedRole) {
 
-            </div>
+        error.innerText =
+            "Выберите, кто вы.";
 
-        </div>
-
-
-        <div class="section">
-
-            <div class="section-title">
-                Склады
-            </div>
-
-    `;
-
-
-    warehouses.forEach(warehouse => {
-
-        html += `
-
-            <div
-                class="card warehouse clickable"
-                onclick="showWarehouse(${warehouse.id})">
-
-                <div class="warehouse-name">
-                    📍 ${warehouse.name}
-                </div>
-
-                <div>
-                    ${totalStockForWarehouse(warehouse.id)}
-                    шт.
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-
-    html += `
-
-        </div>
-
-
-        <div class="section">
-
-            <div class="section-title">
-                Товары
-            </div>
-
-    `;
-
-
-    if (products.length === 0) {
-
-        html += `
-
-            <div class="card empty">
-                Товаров пока нет.
-            </div>
-
-        `;
+        return;
 
     }
 
 
-    products.forEach(product => {
+    /*
+       Пока просто показываем,
+       что регистрация сработала.
+    */
 
-        html += `
+    let roleText = "";
 
-            <div
-                class="card clickable"
-                onclick="showProduct(${product.id})">
 
-                <div class="product-title">
-                    ${product.name}
-                </div>
+    if (selectedRole === "seller") {
 
-                <div class="small">
-                    Нажмите для детализации
-                </div>
+        roleText = "Селлер";
 
-            </div>
+    }
 
-        `;
+    if (selectedRole === "manufacturer") {
 
-    });
+        roleText = "Производитель";
 
+    }
 
-    html += `
+    if (selectedRole === "both") {
 
-        </div>
-
-    `;
-
-
-    document.getElementById("app").innerHTML =
-        html;
-
-}
-
-
-
-/* =========================================================
-   ОСТАТКИ
-========================================================= */
-
-function totalStockForWarehouse(id) {
-
-    return products.reduce(
-        (sum, product) =>
-            sum +
-            product.sizes.reduce(
-                (s, size) =>
-                    s + size.stock,
-                0
-            ),
-        0
-    );
-
-}
-
-
-function showStockDetails() {
-
-    let html = `
-
-        <button
-            class="back"
-            onclick="closeModal()">
-
-            ← Назад
-
-        </button>
-
-        <h2>
-            Все остатки
-        </h2>
-
-    `;
-
-
-    products.forEach(product => {
-
-        html += `
-
-            <div class="modal-row">
-
-                <b>
-                    ${product.name}
-                </b>
-
-            </div>
-
-        `;
-
-
-        product.sizes.forEach(size => {
-
-            html += `
-
-                <div
-                    class="modal-row"
-                    onclick="showSizeStock(
-                        ${product.id},
-                        '${size.size}'
-                    )">
-
-                    Размер ${size.size}
-
-                    <br>
-
-                    <b>
-                        ${size.stock} шт.
-                    </b>
-
-                </div>
-
-            `;
-
-        });
-
-    });
-
-
-    openModal(html);
-
-}
-
-
-
-function showSizeStock(productId, sizeName) {
-
-    const product =
-        products.find(
-            p => p.id === productId
-        );
-
-    const size =
-        product.sizes.find(
-            s => s.size === sizeName
-        );
-
-
-    const sold =
-        orders
-            .filter(
-                o =>
-                    o.product === productId &&
-                    o.size === sizeName
-            )
-            .reduce(
-                (sum, o) =>
-                    sum + o.quantity,
-                0
-            );
-
-
-    let html = `
-
-        <button
-            class="back"
-            onclick="showStockDetails()">
-
-            ← Назад
-
-        </button>
-
-        <h2>
-            ${product.name}
-        </h2>
-
-        <p>
-            Размер: <b>${sizeName}</b>
-        </p>
-
-
-        <div class="modal-row">
-            Физический остаток:
-            <b>${size.stock} шт.</b>
-        </div>
-
-
-        <div class="modal-row">
-            Заказано:
-            <b>${sold} шт.</b>
-        </div>
-
-
-        <div class="modal-row">
-            Свободно:
-            <b>${size.stock - sold} шт.</b>
-        </div>
-
-    `;
-
-
-    openModal(html);
-
-}
-
-
-
-/* =========================================================
-   ЗАКАЗЫ
-========================================================= */
-
-function showOrdersDetails() {
-
-    let html = `
-
-        <button
-            class="back"
-            onclick="closeModal()">
-
-            ← Назад
-
-        </button>
-
-        <h2>
-            Заказы сегодня
-        </h2>
-
-    `;
-
-
-    if (orders.length === 0) {
-
-        html += `
-            <div class="empty">
-                Заказов нет.
-            </div>
-        `;
+        roleText =
+            "Производитель + Селлер";
 
     }
 
 
-    orders.forEach(order => {
+    document.querySelector(".container").innerHTML = `
 
-        const product =
-            products.find(
-                p => p.id === order.product
-            );
+        <div class="logo">
+            📦 Мой склад
+        </div>
 
-        const platform =
-            platforms.find(
-                p => p.id === order.platform
-            );
+        <div class="card">
 
-        const account =
-            findAccount(order.account);
+            <h2>
+                Добро пожаловать, ${name}!
+            </h2>
 
+            <p>
+                Регистрация прошла успешно.
+            </p>
 
-        html += `
+            <p>
+                Ваша роль:
+                <b>${roleText}</b>
+            </p>
 
-            <div class="modal-row">
+            <button onclick="alert('Дальше подключим настоящий дашборд')">
+                Перейти в Мой склад
+            </button>
 
-                <b>
-                    ${order.id}
-                </b>
+        </div>
 
-                <br>
-
-                ${product.name}
-
-                · размер ${order.size}
-
-                · ${order.quantity} шт.
-
-                <br>
-
-                <span class="small">
-                    ${platform.name}
-                    → ${account.name}
-                </span>
-
-            </div>
-
-        `;
-
-    });
-
-
-    openModal(html);
+    `;
 
 }
 
+</script>
 
-
-/* =========================================================
-   ПРОВАЛИВАНИЕ ЗАКАЗОВ
-========================================================= */
-
-function showPlatforms(productId, sizeName) {
-
-    const filtered =
-        orders.filter(
-            order =>
-                order.product === productId &&
-                order.size === sizeName
-        );
-
-
-    let grouped = {};
-
-
-    filtered.forEach(order => {
-
-        if (!grouped[order.platform]) {
-            grouped[order.platform] = 0;
-        }
-
-        grouped[order.platform] +=
-            order.quantity;
-
-    });
-
-    
+</body>
+</html>    
