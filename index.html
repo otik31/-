@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Мой склад</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -22,15 +20,27 @@ body {
 .header {
     background: #111;
     color: white;
-    padding: 18px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 22px;
+    font-size: 21px;
+}
+
+.menu-button {
+    background: #333;
+    color: white;
+    border: 0;
+    padding: 9px 12px;
+    border-radius: 9px;
+    font-size: 18px;
 }
 
 .container {
@@ -49,40 +59,49 @@ body {
     margin-bottom: 10px;
 }
 
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.metric {
+    background: white;
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.metric-label {
+    color: #777;
+    font-size: 13px;
+}
+
+.metric-value {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
 .card {
     background: white;
     border-radius: 14px;
     padding: 15px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .warehouse {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .warehouse-name {
     font-weight: bold;
 }
 
-.warehouse-count {
-    font-weight: bold;
-}
-
-.add-warehouse {
-    width: 100%;
-    border: 2px dashed #ccc;
-    background: white;
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 15px;
-}
-
 .product-title {
-    font-size: 17px;
     font-weight: bold;
+    font-size: 17px;
     margin-bottom: 12px;
 }
 
@@ -92,10 +111,10 @@ table {
 }
 
 th {
-    font-size: 12px;
     color: #777;
+    font-size: 12px;
     text-align: left;
-    padding: 8px 4px;
+    padding: 7px 4px;
 }
 
 td {
@@ -108,7 +127,7 @@ td {
 }
 
 .order-link {
-    color: #0066ff;
+    color: #1266ff;
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
@@ -117,106 +136,124 @@ td {
 .total {
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #eee;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid #eee;
     font-weight: bold;
 }
 
-.dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.metric {
+.add-button {
+    width: 100%;
     background: white;
-    border-radius: 14px;
-    padding: 15px;
-}
-
-.metric-label {
-    color: #777;
-    font-size: 13px;
-}
-
-.metric-value {
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 6px;
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-button {
-    border: none;
+    border: 2px dashed #ccc;
     padding: 13px;
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-.primary {
-    background: #111;
-    color: white;
-}
-
-.secondary {
-    background: white;
-    border: 1px solid #ddd;
+    border-radius: 11px;
 }
 
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,.5);
     z-index: 100;
-    padding: 20px;
+    padding: 15px;
 }
 
 .modal-box {
     background: white;
     max-width: 500px;
-    margin: 50px auto;
+    margin: 30px auto;
     border-radius: 16px;
     padding: 20px;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
 }
 
 .close {
     float: right;
-    font-size: 24px;
+    font-size: 25px;
     cursor: pointer;
 }
 
-.detail-row {
-    padding: 12px 0;
+.modal-item {
+    padding: 14px 5px;
     border-bottom: 1px solid #eee;
+    cursor: pointer;
 }
 
-input, select {
+.modal-item:hover {
+    background: #f5f5f5;
+}
+
+.back {
+    background: #eee;
+    border: 0;
+    padding: 9px 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+input,
+select {
     width: 100%;
-    padding: 12px;
+    padding: 11px;
     margin: 6px 0 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
 }
 
+.save {
+    width: 100%;
+    background: #111;
+    color: white;
+    border: 0;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.menu-section {
+    margin-top: 20px;
+}
+
+.menu-section h3 {
+    margin-bottom: 8px;
+}
+
+.menu-row {
+    padding: 13px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.plus {
+    color: #1266ff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.platform {
+    font-weight: bold;
+}
+
+.account {
+    padding-left: 15px;
+    color: #555;
+    margin-top: 7px;
+}
+
 </style>
 </head>
 
-
 <body>
-
 
 <div class="header">
 
     <h1>📦 Мой склад</h1>
+
+    <button
+        class="menu-button"
+        onclick="openMenu()">
+        ☰
+    </button>
 
 </div>
 
@@ -228,76 +265,82 @@ input, select {
 
 <div class="section">
 
-    <div class="section-title">
-        Сегодня
-    </div>
+<div class="section-title">
+Сегодня
+</div>
 
-    <div class="dashboard">
+<div class="dashboard">
 
-        <div class="metric">
+<div class="metric">
+<div class="metric-label">
+Всего товара
+</div>
 
-            <div class="metric-label">
-                Всего товара
-            </div>
+<div
+class="metric-value"
+id="totalStock">
+667
+</div>
 
-            <div class="metric-value" id="totalStock">
-                667
-            </div>
-
-            <div class="metric-label">
-                шт.
-            </div>
-
-        </div>
-
-
-        <div class="metric">
-
-            <div class="metric-label">
-                Заказано сегодня
-            </div>
-
-            <div class="metric-value" id="totalOrders">
-                25
-            </div>
-
-            <div class="metric-label">
-                шт.
-            </div>
-
-        </div>
+<div class="metric-label">
+шт.
+</div>
+</div>
 
 
-        <div class="metric">
+<div class="metric">
 
-            <div class="metric-label">
-                Свободно
-            </div>
+<div class="metric-label">
+Заказано сегодня
+</div>
 
-            <div class="metric-value" id="freeStock">
-                642
-            </div>
+<div
+class="metric-value"
+id="totalOrders">
+25
+</div>
 
-            <div class="metric-label">
-                шт.
-            </div>
+<div class="metric-label">
+шт.
+</div>
 
-        </div>
+</div>
 
 
-        <div class="metric">
+<div class="metric">
 
-            <div class="metric-label">
-                Складов
-            </div>
+<div class="metric-label">
+Свободно
+</div>
 
-            <div class="metric-value" id="warehouseCount">
-                2
-            </div>
+<div
+class="metric-value"
+id="freeStock">
+642
+</div>
 
-        </div>
+<div class="metric-label">
+шт.
+</div>
 
-    </div>
+</div>
+
+
+<div class="metric">
+
+<div class="metric-label">
+Аккаунтов получили заказы
+</div>
+
+<div
+class="metric-value"
+id="activeAccounts">
+3
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -307,50 +350,35 @@ input, select {
 
 <div class="section">
 
-    <div class="section-title">
-        Склады
-    </div>
+<div class="section-title">
+Склады
+</div>
 
 
-    <div id="warehouses">
+<div class="card warehouse">
+
+<div class="warehouse-name">
+📍 Белгород
+</div>
+
+<div>
+367 шт.
+</div>
+
+</div>
 
 
-        <div class="card warehouse">
+<div class="card warehouse">
 
-            <div class="warehouse-name">
-                📍 Белгород
-            </div>
+<div class="warehouse-name">
+📍 Москва
+</div>
 
-            <div class="warehouse-count">
-                367 шт.
-            </div>
+<div>
+300 шт.
+</div>
 
-        </div>
-
-
-        <div class="card warehouse">
-
-            <div class="warehouse-name">
-                📍 Москва
-            </div>
-
-            <div class="warehouse-count">
-                300 шт.
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <button
-        class="add-warehouse"
-        onclick="addWarehouse()">
-
-        ＋ Добавить склад
-
-    </button>
+</div>
 
 </div>
 
@@ -360,229 +388,201 @@ input, select {
 
 <div class="section">
 
-    <div class="section-title">
-        Белгород
-    </div>
-
-
-    <div class="card">
-
-
-        <div class="product-title">
-
-            Товар 1
-
-        </div>
-
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        Размер
-                    </th>
-
-                    <th>
-                        Остаток
-                    </th>
-
-                    <th>
-                        Заказано
-                    </th>
-
-                    <th>
-                        Свободно
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-
-                <tr>
-
-                    <td>
-                        1
-                    </td>
-
-                    <td class="number">
-                        20
-                    </td>
-
-                    <td>
-                        <span
-                            class="order-link"
-                            onclick="showOrders(1,3)">
-                            3
-                        </span>
-                    </td>
-
-                    <td>
-                        17
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        2
-                    </td>
-
-                    <td class="number">
-                        35
-                    </td>
-
-                    <td>
-                        <span
-                            class="order-link"
-                            onclick="showOrders(2,7)">
-                            7
-                        </span>
-                    </td>
-
-                    <td>
-                        28
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        3
-                    </td>
-
-                    <td class="number">
-                        42
-                    </td>
-
-                    <td>
-                        <span
-                            class="order-link"
-                            onclick="showOrders(3,12)">
-                            12
-                        </span>
-                    </td>
-
-                    <td>
-                        30
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        4
-                    </td>
-
-                    <td class="number">
-                        18
-                    </td>
-
-                    <td>
-                        <span
-                            class="order-link"
-                            onclick="showOrders(4,2)">
-                            2
-                        </span>
-                    </td>
-
-                    <td>
-                        16
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        5
-                    </td>
-
-                    <td class="number">
-                        7
-                    </td>
-
-                    <td>
-                        <span
-                            class="order-link"
-                            onclick="showOrders(5,1)">
-                            1
-                        </span>
-                    </td>
-
-                    <td>
-                        6
-                    </td>
-
-                </tr>
-
-
-            </tbody>
-
-        </table>
-
-
-        <div class="total">
-
-            <span>
-                Всего
-            </span>
-
-            <span>
-                122 шт.
-            </span>
-
-        </div>
-
-
-    </div>
-
+<div class="section-title">
+Белгород
 </div>
 
 
+<div class="card">
 
-<!-- ДЕЙСТВИЯ -->
-
-<div class="section">
-
-    <div class="section-title">
-        Быстрые действия
-    </div>
+<div class="product-title">
+Товар 1
+</div>
 
 
-    <div class="buttons">
+<table>
 
-        <button
-            class="primary"
-            onclick="addStock()">
+<thead>
 
-            ＋ Приход
+<tr>
 
-        </button>
+<th>
+Размер
+</th>
+
+<th>
+Остаток
+</th>
+
+<th>
+Заказано
+</th>
+
+<th>
+Свободно
+</th>
+
+</tr>
+
+</thead>
 
 
-        <button
-            class="secondary"
-            onclick="sellStock()">
+<tbody>
 
-            − Продажа
 
-        </button>
+<tr>
 
-    </div>
+<td>1</td>
+
+<td class="number">
+20
+</td>
+
+<td>
+
+<span
+class="order-link"
+onclick="showPlatforms(1,3)">
+
+3
+
+</span>
+
+</td>
+
+<td>
+17
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>2</td>
+
+<td class="number">
+35
+</td>
+
+<td>
+
+<span
+class="order-link"
+onclick="showPlatforms(2,7)">
+
+7
+
+</span>
+
+</td>
+
+<td>
+28
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>3</td>
+
+<td class="number">
+42
+</td>
+
+<td>
+
+<span
+class="order-link"
+onclick="showPlatforms(3,12)">
+
+12
+
+</span>
+
+</td>
+
+<td>
+30
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>4</td>
+
+<td class="number">
+18
+</td>
+
+<td>
+
+<span
+class="order-link"
+onclick="showPlatforms(4,2)">
+
+2
+
+</span>
+
+</td>
+
+<td>
+16
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>5</td>
+
+<td class="number">
+7
+</td>
+
+<td>
+
+<span
+class="order-link"
+onclick="showPlatforms(5,1)">
+
+1
+
+</span>
+
+</td>
+
+<td>
+6
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+
+<div class="total">
+
+<span>
+Всего
+</span>
+
+<span>
+122 шт.
+</span>
+
+</div>
+
+</div>
 
 </div>
 
@@ -595,25 +595,21 @@ input, select {
 <!-- МОДАЛЬНОЕ ОКНО -->
 
 <div
-    class="modal"
-    id="modal">
+class="modal"
+id="modal">
 
-    <div class="modal-box">
+<div class="modal-box">
 
-        <span
-            class="close"
-            onclick="closeModal()">
+<span
+class="close"
+onclick="closeModal()">
 
-            ×
+×
+</span>
 
-        </span>
+<div id="modalContent"></div>
 
-
-        <div id="modalContent">
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -622,261 +618,481 @@ input, select {
 <script>
 
 
-function showOrders(size, quantity) {
+/* ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ */
+
+const platforms = [
+
+{
+name: "Wildberries",
+accounts: [
+{
+name: "Аккаунт №1",
+orders: 5
+},
+{
+name: "Аккаунт №2",
+orders: 3
+}
+]
+},
+
+{
+name: "Ozon",
+accounts: [
+{
+name: "Аккаунт №1",
+orders: 4
+}
+]
+}
+
+];
 
 
-    document.getElementById("modalContent").innerHTML = `
 
-        <h2>
-            Заказы — размер ${size}
-        </h2>
+/* ПЛАТФОРМЫ */
 
-        <p>
-            Сегодня заказано:
-            <b>${quantity} шт.</b>
-        </p>
+function showPlatforms(size, total) {
 
+let html = `
 
-        <div class="detail-row">
+<button
+class="back"
+onclick="closeModal()">
 
-            🟣 <b>Wildberries</b>
+← Назад
 
-            <br>
+</button>
 
-            Заказано: ${Math.ceil(quantity * 0.7)} шт.
+<h2>
+Размер ${size}
+</h2>
 
-        </div>
+<p>
+Заказано сегодня:
+<b>${total} шт.</b>
+</p>
 
+`;
 
-        <div class="detail-row">
+platforms.forEach((platform, index) => {
 
-            🔵 <b>Ozon</b>
+let quantity =
+platform.accounts.reduce(
+(sum, account) =>
+sum + account.orders,
+0
+);
 
-            <br>
+if (quantity > 0) {
 
-            Заказано: ${Math.floor(quantity * 0.3)} шт.
+html += `
 
-        </div>
+<div
+class="modal-item"
+onclick="showAccounts(${index}, ${size})">
 
+<div class="platform">
+${platform.name}
+</div>
 
-        <br>
+<div>
+Заказано: <b>${quantity} шт.</b>
+</div>
 
-        <button
-            class="primary"
-            style="width:100%"
-            onclick="closeModal()">
+</div>
 
-            Закрыть
+`;
 
-        </button>
+}
 
-    `;
+});
 
+document.getElementById(
+"modalContent"
+).innerHTML = html;
 
-    document.getElementById("modal").style.display = "block";
+document.getElementById(
+"modal"
+).style.display = "block";
 
 }
 
 
+
+/* АККАУНТЫ */
+
+function showAccounts(
+platformIndex,
+size
+) {
+
+const platform =
+platforms[platformIndex];
+
+let html = `
+
+<button
+class="back"
+onclick="showPlatforms(${size}, 12)">
+
+← Назад
+
+</button>
+
+<h2>
+${platform.name}
+</h2>
+
+<p>
+Размер: <b>${size}</b>
+</p>
+
+`;
+
+platform.accounts.forEach(
+(account, index) => {
+
+html += `
+
+<div
+class="modal-item"
+onclick="showOrders(
+${platformIndex},
+${index},
+${size}
+)">
+
+<div>
+👤 <b>${account.name}</b>
+</div>
+
+<div>
+Заказано:
+<b>${account.orders} шт.</b>
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+"modalContent"
+).innerHTML = html;
+
+}
+
+
+
+/* КОНКРЕТНЫЕ ЗАКАЗЫ */
+
+function showOrders(
+platformIndex,
+accountIndex,
+size
+) {
+
+const platform =
+platforms[platformIndex];
+
+const account =
+platform.accounts[accountIndex];
+
+let html = `
+
+<button
+class="back"
+onclick="showAccounts(
+${platformIndex},
+${size}
+)">
+
+← Назад
+
+</button>
+
+<h2>
+${account.name}
+</h2>
+
+<p>
+Площадка:
+<b>${platform.name}</b>
+</p>
+
+<p>
+Размер:
+<b>${size}</b>
+</p>
+
+<hr>
+
+<h3>
+Заказы сегодня
+</h3>
+
+`;
+
+for (
+let i = 1;
+i <= account.orders;
+i++
+) {
+
+html += `
+
+<div class="modal-item">
+
+Заказ №${10000 + i}
+
+<br>
+
+<span style="color:#777">
+
+Размер ${size} · 1 шт.
+
+</span>
+
+</div>
+
+`;
+
+}
+
+document.getElementById(
+"modalContent"
+).innerHTML = html;
+
+}
+
+
+
+/* МЕНЮ */
+
+function openMenu() {
+
+let html = `
+
+<h2>
+☰ Управление
+</h2>
+
+
+<div class="menu-section">
+
+<h3>
+🏢 Склады
+</h3>
+
+<div class="menu-row">
+📍 Белгород
+</div>
+
+<div class="menu-row">
+📍 Москва
+</div>
+
+<div
+class="menu-row plus"
+onclick="addWarehouse()">
+
+＋ Добавить склад
+
+</div>
+
+</div>
+
+
+
+<div class="menu-section">
+
+<h3>
+🛒 Платформы
+</h3>
+
+`;
+
+platforms.forEach(
+(platform, index) => {
+
+html += `
+
+<div class="menu-row platform">
+
+${platform.name}
+
+</div>
+
+`;
+
+});
+
+html += `
+
+<div
+class="menu-row plus"
+onclick="addPlatform()">
+
+＋ Добавить платформу
+
+</div>
+
+</div>
+
+
+
+<div class="menu-section">
+
+<h3>
+👤 Аккаунты
+</h3>
+
+`;
+
+platforms.forEach(
+(platform, pIndex) => {
+
+html += `
+
+<div class="menu-row platform">
+
+${platform.name}
+
+`;
+
+platform.accounts.forEach(
+(account) => {
+
+html += `
+
+<div class="account">
+
+└ ${account.name}
+
+</div>
+
+`;
+
+});
+
+html += `
+
+<div
+class="account plus"
+onclick="addAccount(${pIndex})">
+
+＋ Добавить аккаунт
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+html += `
+
+</div>
+
+`;
+
+document.getElementById(
+"modalContent"
+).innerHTML = html;
+
+document.getElementById(
+"modal"
+).style.display = "block";
+
+}
+
+
+
+/* ДОБАВИТЬ СКЛАД */
 
 function addWarehouse() {
 
+let name = prompt(
+"Название города / склада:"
+);
 
-    let name = prompt(
-        "Введите название города:"
-    );
+if (!name) return;
 
-
-    if (!name) {
-
-        return;
-
-    }
-
-
-    let warehouses =
-        document.getElementById("warehouses");
-
-
-    let card =
-        document.createElement("div");
-
-
-    card.className = "card warehouse";
-
-
-    card.innerHTML = `
-
-        <div class="warehouse-name">
-
-            📍 ${name}
-
-        </div>
-
-        <div class="warehouse-count">
-
-            0 шт.
-
-        </div>
-
-    `;
-
-
-    warehouses.appendChild(card);
-
-
-    updateWarehouseCount();
+alert(
+`Склад «${name}» добавлен.`
+);
 
 }
 
 
 
-function updateWarehouseCount() {
+/* ДОБАВИТЬ ПЛАТФОРМУ */
 
-    let count =
-        document.querySelectorAll(
-            "#warehouses .warehouse"
-        ).length;
+function addPlatform() {
 
+let name = prompt(
+"Название платформы:"
+);
 
-    document.getElementById(
-        "warehouseCount"
-    ).innerText = count;
+if (!name) return;
 
-}
+platforms.push({
 
+name: name,
 
+accounts: []
 
-function addStock() {
+});
 
-
-    let quantity = prompt(
-        "Сколько товара добавить?"
-    );
-
-
-    quantity = Number(quantity);
-
-
-    if (!quantity || quantity <= 0) {
-
-        return;
-
-    }
-
-
-    let current =
-        Number(
-            document.getElementById(
-                "totalStock"
-            ).innerText
-        );
-
-
-    current += quantity;
-
-
-    document.getElementById(
-        "totalStock"
-    ).innerText = current;
-
-
-    updateFree();
+openMenu();
 
 }
 
 
 
-function sellStock() {
+/* ДОБАВИТЬ АККАУНТ */
 
+function addAccount(
+platformIndex
+) {
 
-    let quantity = prompt(
-        "Сколько товара продано?"
-    );
+let name = prompt(
+"Название аккаунта:"
+);
 
+if (!name) return;
 
-    quantity = Number(quantity);
+platforms[
+platformIndex
+].accounts.push({
 
+name: name,
 
-    if (!quantity || quantity <= 0) {
+orders: 0
 
-        return;
+});
 
-    }
-
-
-    let current =
-        Number(
-            document.getElementById(
-                "totalStock"
-            ).innerText
-        );
-
-
-    if (quantity > current) {
-
-        alert(
-            "Недостаточно товара"
-        );
-
-        return;
-
-    }
-
-
-    current -= quantity;
-
-
-    document.getElementById(
-        "totalStock"
-    ).innerText = current;
-
-
-    updateFree();
+openMenu();
 
 }
 
 
 
-function updateFree() {
-
-
-    let stock =
-        Number(
-            document.getElementById(
-                "totalStock"
-            ).innerText
-        );
-
-
-    let orders =
-        Number(
-            document.getElementById(
-                "totalOrders"
-            ).innerText
-        );
-
-
-    document.getElementById(
-        "freeStock"
-    ).innerText =
-        stock - orders;
-
-}
-
-
+/* ЗАКРЫТЬ */
 
 function closeModal() {
 
-    document.getElementById(
-        "modal"
-    ).style.display = "none";
+document.getElementById(
+"modal"
+).style.display = "none";
 
 }
 
-
 </script>
-
 
 </body>
 </html>
