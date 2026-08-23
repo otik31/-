@@ -3,142 +3,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Мой склад</title>
 
 <style>
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
     margin: 0;
-    padding: 20px;
+    background: #f4f5f7;
+    font-family: Arial, sans-serif;
+    color: #111;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 18px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .card {
-    max-width: 500px;
-    margin: auto;
     background: white;
-    padding: 20px;
-    border-radius: 16px;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-button, select, input {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+.big {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 8px;
 }
 
-button {
-    cursor: pointer;
+.label {
+    color: #777;
+    font-size: 14px;
 }
 
-.row {
+.buttons {
     display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+    gap: 10px;
     margin-top: 15px;
 }
 
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+button {
+    flex: 1;
+    border: none;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
 }
+
+.sell {
+    background: #111;
+    color: white;
+}
+
+.add {
+    background: #e8e8e8;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.operation {
+    background: white;
+    padding: 13px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.empty {
+    color: #888;
+    text-align: center;
+    padding: 20px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="header">
+    <h1>📦 Мой склад</h1>
+</div>
 
-<h1>📦 Мой склад</h1>
+<div class="container">
 
-<h2>Товар №1</h2>
+    <div class="cards">
 
-<p>
-Остаток:
-<strong id="stock">10</strong> шт.
-</p>
+        <div class="card">
+            <div class="label">Остаток</div>
+            <div class="big" id="stock">10</div>
+            <div class="label">шт.</div>
+        </div>
 
-<hr>
+        <div class="card">
+            <div class="label">Товаров</div>
+            <div class="big">1</div>
+        </div>
 
-<h3>Продажа</h3>
+        <div class="card">
+            <div class="label">Продаж</div>
+            <div class="big" id="sales">0</div>
+            <div class="label">сегодня</div>
+        </div>
 
-<div class="row">
+        <div class="card">
+            <div class="label">Операций</div>
+            <div class="big" id="operations">0</div>
+        </div>
 
-<select id="platform">
-<option>Wildberries</option>
-<option>Ozon</option>
-</select>
+    </div>
 
-<select id="account">
-<option>Аккаунт №1</option>
-<option>Аккаунт №2</option>
-</select>
 
-<input id="quantity" type="number" value="1" min="1">
+    <h2>Площадки</h2>
 
-<button onclick="sell()">Продать</button>
+    <div class="cards">
+
+        <div class="card">
+            <div class="label">Wildberries</div>
+            <div class="big" id="wb">0</div>
+            <div class="label">продаж</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Ozon</div>
+            <div class="big" id="ozon">0</div>
+            <div class="label">продаж</div>
+        </div>
+
+    </div>
+
+
+    <h2>Быстрые действия</h2>
+
+    <div class="buttons">
+
+        <button class="sell" onclick="sell()">
+            − Продажа
+        </button>
+
+        <button class="add" onclick="addStock()">
+            + Приход
+        </button>
+
+    </div>
+
+
+    <h2>Последние операции</h2>
+
+    <div id="history">
+
+        <div class="empty">
+            Пока операций нет
+        </div>
+
+    </div>
 
 </div>
 
-<hr>
-
-<h3>История</h3>
-
-<table>
-<thead>
-<tr>
-<th>Площадка</th>
-<th>Аккаунт</th>
-<th>Кол-во</th>
-</tr>
-</thead>
-
-<tbody id="history">
-</tbody>
-</table>
-
-</div>
 
 <script>
 
 let stock = 10;
+let sales = 0;
+let operations = 0;
+let wb = 0;
+let ozon = 0;
+
 
 function sell() {
 
-    const platform = document.getElementById("platform").value;
-    const account = document.getElementById("account").value;
-    const quantity = Number(document.getElementById("quantity").value);
+    if (stock <= 0) {
 
-    if (quantity <= 0) {
-        alert("Введите количество");
+        alert("Товар закончился");
+
         return;
     }
 
-    if (quantity > stock) {
-        alert("Недостаточно товара");
+
+    let platform = prompt(
+        "Где была продажа?\n\n1 — Wildberries\n2 — Ozon"
+    );
+
+
+    if (platform !== "1" && platform !== "2") {
+
         return;
     }
 
-    stock -= quantity;
 
-    document.getElementById("stock").textContent = stock;
+    stock--;
 
-    const row = document.createElement("tr");
+    sales++;
 
-    row.innerHTML = `
-        <td>${platform}</td>
-        <td>${account}</td>
-        <td>-${quantity}</td>
-    `;
+    operations++;
 
-    document.getElementById("history").appendChild(row);
+
+    if (platform === "1") {
+
+        wb++;
+
+        addOperation("Продажа", "Wildberries");
+
+    } else {
+
+        ozon++;
+
+        addOperation("Продажа", "Ozon");
+
+    }
+
+
+    updateDashboard();
+
+}
+
+
+function addStock() {
+
+    let quantity = prompt("Сколько товара добавить?");
+
+    quantity = Number(quantity);
+
+
+    if (!quantity || quantity <= 0) {
+
+        return;
+    }
+
+
+    stock += quantity;
+
+    operations++;
+
+
+    addOperation(
+        "Приход",
+        "+" + quantity + " шт."
+    );
+
+
+    updateDashboard();
+
+}
+
+
+function addOperation(type, info) {
+
+    let history =
+        document.getElementById("history");
+
+
+    let empty =
+        history.querySelector(".empty");
+
+
+    if (empty) {
+
+        empty.remove();
+
+    }
+
+
+    let operation =
+        document.createElement("div");
+
+
+    operation.className = "operation";
+
+
+    operation.innerHTML =
+
+        "<b>" + type + "</b><br>" +
+
+        "<span class='label'>" +
+
+        info +
+
+        "</span>";
+
+
+    history.prepend(operation);
+
+}
+
+
+function updateDashboard() {
+
+    document.getElementById("stock").innerText =
+        stock;
+
+
+    document.getElementById("sales").innerText =
+        sales;
+
+
+    document.getElementById("operations").innerText =
+        operations;
+
+
+    document.getElementById("wb").innerText =
+        wb;
+
+
+    document.getElementById("ozon").innerText =
+        ozon;
+
 }
 
 </script>
