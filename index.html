@@ -13,14 +13,14 @@
 body {
     margin: 0;
     background: #f4f5f7;
-    font-family: Arial, sans-serif;
     color: #111;
+    font-family: Arial, sans-serif;
 }
 
 .header {
     background: #111;
-    color: white;
-    padding: 16px;
+    color: #fff;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,17 +34,17 @@ body {
     font-size: 21px;
 }
 
-.menu-button {
+.menu-btn {
+    border: 0;
     background: #333;
     color: white;
-    border: 0;
-    padding: 9px 12px;
     border-radius: 9px;
+    padding: 9px 12px;
     font-size: 18px;
 }
 
 .container {
-    max-width: 700px;
+    max-width: 720px;
     margin: auto;
     padding: 15px;
 }
@@ -67,9 +67,15 @@ body {
 
 .metric {
     background: white;
-    border-radius: 14px;
     padding: 15px;
+    border-radius: 14px;
     box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    cursor: pointer;
+}
+
+.metric:active,
+.clickable:active {
+    transform: scale(.98);
 }
 
 .metric-label {
@@ -78,7 +84,7 @@ body {
 }
 
 .metric-value {
-    font-size: 26px;
+    font-size: 27px;
     font-weight: bold;
     margin-top: 7px;
 }
@@ -88,6 +94,10 @@ body {
     border-radius: 14px;
     padding: 15px;
     margin-bottom: 10px;
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 .warehouse {
@@ -100,8 +110,8 @@ body {
 }
 
 .product-title {
-    font-weight: bold;
     font-size: 17px;
+    font-weight: bold;
     margin-bottom: 12px;
 }
 
@@ -111,9 +121,9 @@ table {
 }
 
 th {
+    text-align: left;
     color: #777;
     font-size: 12px;
-    text-align: left;
     padding: 7px 4px;
 }
 
@@ -126,28 +136,42 @@ td {
     font-weight: bold;
 }
 
-.order-link {
+.link {
     color: #1266ff;
-    font-weight: bold;
     text-decoration: underline;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .total {
-    display: flex;
-    justify-content: space-between;
     border-top: 1px solid #eee;
     margin-top: 12px;
     padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
     font-weight: bold;
 }
 
 .add-button {
     width: 100%;
-    background: white;
-    border: 2px dashed #ccc;
     padding: 13px;
+    border: 2px dashed #ccc;
+    background: white;
     border-radius: 11px;
+}
+
+.danger {
+    color: #d00000;
+}
+
+.warning {
+    background: #fff7d6;
+    border: 1px solid #ead27c;
+}
+
+.success {
+    background: #e9f8ed;
+    border: 1px solid #a8d9b1;
 }
 
 .modal {
@@ -161,65 +185,97 @@ td {
 
 .modal-box {
     background: white;
-    max-width: 500px;
-    margin: 30px auto;
+    max-width: 520px;
+    margin: 25px auto;
     border-radius: 16px;
     padding: 20px;
-    max-height: 85vh;
+    max-height: 88vh;
     overflow-y: auto;
 }
 
 .close {
     float: right;
-    font-size: 25px;
+    font-size: 26px;
     cursor: pointer;
 }
 
-.modal-item {
-    padding: 14px 5px;
+.modal-row {
+    padding: 13px 5px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
 }
 
-.modal-item:hover {
-    background: #f5f5f5;
+.modal-row:hover {
+    background: #f6f6f6;
 }
 
 .back {
-    background: #eee;
     border: 0;
+    background: #eee;
     padding: 9px 12px;
     border-radius: 8px;
     margin-bottom: 12px;
 }
 
-input,
-select {
-    width: 100%;
-    padding: 11px;
-    margin: 6px 0 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.save {
+.primary {
     width: 100%;
     background: #111;
     color: white;
     border: 0;
-    padding: 12px;
+    padding: 13px;
     border-radius: 9px;
+    font-size: 15px;
 }
 
-.menu-section {
+.secondary {
+    width: 100%;
+    background: #eee;
+    color: #111;
+    border: 0;
+    padding: 13px;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.delete-btn {
+    background: #ffe5e5;
+    color: #c00000;
+    border: 0;
+    padding: 9px 12px;
+    border-radius: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.role-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 14px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.role-card.selected {
+    border: 2px solid #111;
+}
+
+.menu-group {
     margin-top: 20px;
 }
 
-.menu-section h3 {
-    margin-bottom: 8px;
+.menu-group h3 {
+    margin-bottom: 7px;
 }
 
-.menu-row {
+.menu-item {
     padding: 13px 5px;
     border-bottom: 1px solid #eee;
 }
@@ -230,27 +286,38 @@ select {
     cursor: pointer;
 }
 
-.platform {
-    font-weight: bold;
+.small {
+    color: #777;
+    font-size: 13px;
 }
 
-.account {
-    padding-left: 15px;
-    color: #555;
-    margin-top: 7px;
+.badge {
+    display: inline-block;
+    background: #eee;
+    border-radius: 20px;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-left: 5px;
 }
 
+.empty {
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}
 </style>
 </head>
 
+
 <body>
+
 
 <div class="header">
 
     <h1>📦 Мой склад</h1>
 
     <button
-        class="menu-button"
+        class="menu-btn"
         onclick="openMenu()">
         ☰
     </button>
@@ -258,841 +325,885 @@ select {
 </div>
 
 
-<div class="container">
+<div class="container" id="app"></div>
 
 
-<!-- ДАШБОРД -->
+<div class="modal" id="modal">
 
-<div class="section">
+    <div class="modal-box">
 
-<div class="section-title">
-Сегодня
-</div>
+        <span
+            class="close"
+            onclick="closeModal()">
+            ×
+        </span>
 
-<div class="dashboard">
+        <div id="modalContent"></div>
 
-<div class="metric">
-<div class="metric-label">
-Всего товара
-</div>
-
-<div
-class="metric-value"
-id="totalStock">
-667
-</div>
-
-<div class="metric-label">
-шт.
-</div>
-</div>
-
-
-<div class="metric">
-
-<div class="metric-label">
-Заказано сегодня
-</div>
-
-<div
-class="metric-value"
-id="totalOrders">
-25
-</div>
-
-<div class="metric-label">
-шт.
-</div>
+    </div>
 
 </div>
-
-
-<div class="metric">
-
-<div class="metric-label">
-Свободно
-</div>
-
-<div
-class="metric-value"
-id="freeStock">
-642
-</div>
-
-<div class="metric-label">
-шт.
-</div>
-
-</div>
-
-
-<div class="metric">
-
-<div class="metric-label">
-Аккаунтов получили заказы
-</div>
-
-<div
-class="metric-value"
-id="activeAccounts">
-3
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- СКЛАДЫ -->
-
-<div class="section">
-
-<div class="section-title">
-Склады
-</div>
-
-
-<div class="card warehouse">
-
-<div class="warehouse-name">
-📍 Белгород
-</div>
-
-<div>
-367 шт.
-</div>
-
-</div>
-
-
-<div class="card warehouse">
-
-<div class="warehouse-name">
-📍 Москва
-</div>
-
-<div>
-300 шт.
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ТОВАР -->
-
-<div class="section">
-
-<div class="section-title">
-Белгород
-</div>
-
-
-<div class="card">
-
-<div class="product-title">
-Товар 1
-</div>
-
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>
-Размер
-</th>
-
-<th>
-Остаток
-</th>
-
-<th>
-Заказано
-</th>
-
-<th>
-Свободно
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody>
-
-
-<tr>
-
-<td>1</td>
-
-<td class="number">
-20
-</td>
-
-<td>
-
-<span
-class="order-link"
-onclick="showPlatforms(1,3)">
-
-3
-
-</span>
-
-</td>
-
-<td>
-17
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>2</td>
-
-<td class="number">
-35
-</td>
-
-<td>
-
-<span
-class="order-link"
-onclick="showPlatforms(2,7)">
-
-7
-
-</span>
-
-</td>
-
-<td>
-28
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>3</td>
-
-<td class="number">
-42
-</td>
-
-<td>
-
-<span
-class="order-link"
-onclick="showPlatforms(3,12)">
-
-12
-
-</span>
-
-</td>
-
-<td>
-30
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>4</td>
-
-<td class="number">
-18
-</td>
-
-<td>
-
-<span
-class="order-link"
-onclick="showPlatforms(4,2)">
-
-2
-
-</span>
-
-</td>
-
-<td>
-16
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>5</td>
-
-<td class="number">
-7
-</td>
-
-<td>
-
-<span
-class="order-link"
-onclick="showPlatforms(5,1)">
-
-1
-
-</span>
-
-</td>
-
-<td>
-6
-</td>
-
-</tr>
-
-
-</tbody>
-
-</table>
-
-
-<div class="total">
-
-<span>
-Всего
-</span>
-
-<span>
-122 шт.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-
-
-<!-- МОДАЛЬНОЕ ОКНО -->
-
-<div
-class="modal"
-id="modal">
-
-<div class="modal-box">
-
-<span
-class="close"
-onclick="closeModal()">
-
-×
-</span>
-
-<div id="modalContent"></div>
-
-</div>
-
-</div>
-
 
 
 <script>
 
+/* =========================================================
+   ДАННЫЕ ПРОТОТИПА
+========================================================= */
 
-/* ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ */
+let currentUser = null;
 
-const platforms = [
+let warehouses = [
+    {
+        id: 1,
+        name: "Белгород"
+    },
+    {
+        id: 2,
+        name: "Москва"
+    }
+];
 
-{
-name: "Wildberries",
-accounts: [
-{
-name: "Аккаунт №1",
-orders: 5
-},
-{
-name: "Аккаунт №2",
-orders: 3
-}
-]
-},
+let platforms = [
+    {
+        id: 1,
+        name: "Wildberries",
+        accounts: [
+            {
+                id: 1,
+                name: "WB Аккаунт 1"
+            },
+            {
+                id: 2,
+                name: "WB Аккаунт 2"
+            }
+        ]
+    },
+    {
+        id: 2,
+        name: "Ozon",
+        accounts: [
+            {
+                id: 3,
+                name: "Ozon Аккаунт 1"
+            }
+        ]
+    }
+];
 
-{
-name: "Ozon",
-accounts: [
-{
-name: "Аккаунт №1",
-orders: 4
-}
-]
-}
-
+let products = [
+    {
+        id: 1,
+        name: "Товар 1",
+        owner: "manufacturer",
+        sizes: [
+            {
+                size: "1",
+                stock: 20,
+                ordered: 3,
+                supplierOrders: 0
+            },
+            {
+                size: "2",
+                stock: 35,
+                ordered: 7,
+                supplierOrders: 0
+            },
+            {
+                size: "3",
+                stock: 42,
+                ordered: 12,
+                supplierOrders: 15
+            },
+            {
+                size: "4",
+                stock: 18,
+                ordered: 2,
+                supplierOrders: 0
+            },
+            {
+                size: "5",
+                stock: 7,
+                ordered: 1,
+                supplierOrders: 0
+            }
+        ]
+    }
 ];
 
 
+/*
+    Заказы нужны только для демонстрации
+*/
 
-/* ПЛАТФОРМЫ */
-
-function showPlatforms(size, total) {
-
-let html = `
-
-<button
-class="back"
-onclick="closeModal()">
-
-← Назад
-
-</button>
-
-<h2>
-Размер ${size}
-</h2>
-
-<p>
-Заказано сегодня:
-<b>${total} шт.</b>
-</p>
-
-`;
-
-platforms.forEach((platform, index) => {
-
-let quantity =
-platform.accounts.reduce(
-(sum, account) =>
-sum + account.orders,
-0
-);
-
-if (quantity > 0) {
-
-html += `
-
-<div
-class="modal-item"
-onclick="showAccounts(${index}, ${size})">
-
-<div class="platform">
-${platform.name}
-</div>
-
-<div>
-Заказано: <b>${quantity} шт.</b>
-</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-document.getElementById(
-"modalContent"
-).innerHTML = html;
-
-document.getElementById(
-"modal"
-).style.display = "block";
-
-}
+let orders = [
+    {
+        id: "WB-10001",
+        platform: 1,
+        account: 1,
+        product: 1,
+        size: "3",
+        quantity: 5
+    },
+    {
+        id: "WB-10002",
+        platform: 1,
+        account: 2,
+        product: 1,
+        size: "3",
+        quantity: 3
+    },
+    {
+        id: "OZ-20001",
+        platform: 2,
+        account: 3,
+        product: 1,
+        size: "3",
+        quantity: 4
+    }
+];
 
 
+/* =========================================================
+   РЕГИСТРАЦИЯ
+========================================================= */
 
-/* АККАУНТЫ */
+function showRegistration() {
 
-function showAccounts(
-platformIndex,
-size
-) {
+    document.getElementById("app").innerHTML = `
 
-const platform =
-platforms[platformIndex];
+        <div class="section">
 
-let html = `
+            <div class="card">
 
-<button
-class="back"
-onclick="showPlatforms(${size}, 12)">
+                <h2>
+                    Добро пожаловать
+                </h2>
 
-← Назад
+                <p class="small">
+                    Создайте минимальный профиль.
+                </p>
 
-</button>
+                <label>
+                    Имя
+                </label>
 
-<h2>
-${platform.name}
-</h2>
+                <input
+                    id="regName"
+                    placeholder="Ваше имя">
 
-<p>
-Размер: <b>${size}</b>
-</p>
+                <label>
+                    Номер телефона
+                </label>
 
-`;
+                <input
+                    id="regPhone"
+                    placeholder="+7 999 999-99-99">
 
-platform.accounts.forEach(
-(account, index) => {
+                <h3>
+                    Кто вы?
+                </h3>
 
-html += `
+                <div
+                    class="role-card"
+                    onclick="selectRole('seller', this)">
 
-<div
-class="modal-item"
-onclick="showOrders(
-${platformIndex},
-${index},
-${size}
-)">
+                    🛒 <b>Селлер</b>
 
-<div>
-👤 <b>${account.name}</b>
-</div>
+                    <div class="small">
+                        Продаю товары других производителей
+                    </div>
 
-<div>
-Заказано:
-<b>${account.orders} шт.</b>
-</div>
+                </div>
 
-</div>
 
-`;
+                <div
+                    class="role-card"
+                    onclick="selectRole('manufacturer', this)">
 
-});
+                    🏭 <b>Производитель</b>
 
-document.getElementById(
-"modalContent"
-).innerHTML = html;
+                    <div class="small">
+                        Производю и размещаю свои товары
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="role-card"
+                    onclick="selectRole('both', this)">
+
+                    🔄 <b>Производитель + Селлер</b>
+
+                    <div class="small">
+                        Производю свои товары и продаю товары
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary"
+                    onclick="register()">
+
+                    Продолжить
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
 
 }
 
 
+let selectedRole = null;
 
-/* КОНКРЕТНЫЕ ЗАКАЗЫ */
 
-function showOrders(
-platformIndex,
-accountIndex,
-size
-) {
+function selectRole(role, element) {
 
-const platform =
-platforms[platformIndex];
+    selectedRole = role;
 
-const account =
-platform.accounts[accountIndex];
+    document
+        .querySelectorAll(".role-card")
+        .forEach(el =>
+            el.classList.remove("selected")
+        );
 
-let html = `
-
-<button
-class="back"
-onclick="showAccounts(
-${platformIndex},
-${size}
-)">
-
-← Назад
-
-</button>
-
-<h2>
-${account.name}
-</h2>
-
-<p>
-Площадка:
-<b>${platform.name}</b>
-</p>
-
-<p>
-Размер:
-<b>${size}</b>
-</p>
-
-<hr>
-
-<h3>
-Заказы сегодня
-</h3>
-
-`;
-
-for (
-let i = 1;
-i <= account.orders;
-i++
-) {
-
-html += `
-
-<div class="modal-item">
-
-Заказ №${10000 + i}
-
-<br>
-
-<span style="color:#777">
-
-Размер ${size} · 1 шт.
-
-</span>
-
-</div>
-
-`;
+    element.classList.add("selected");
 
 }
 
-document.getElementById(
-"modalContent"
-).innerHTML = html;
+
+function register() {
+
+    const name =
+        document.getElementById("regName").value.trim();
+
+    const phone =
+        document.getElementById("regPhone").value.trim();
+
+
+    if (!name || !phone || !selectedRole) {
+
+        alert(
+            "Заполните имя, телефон и выберите роль."
+        );
+
+        return;
+
+    }
+
+
+    currentUser = {
+
+        name: name,
+
+        phone: phone,
+
+        role: selectedRole
+
+    };
+
+
+    renderDashboard();
 
 }
 
 
 
-/* МЕНЮ */
+/* =========================================================
+   ПРОВЕРКА РОЛЕЙ
+========================================================= */
 
-function openMenu() {
+function canManageProducts() {
 
-let html = `
+    return (
+        currentUser.role === "manufacturer" ||
+        currentUser.role === "both"
+    );
 
-<h2>
-☰ Управление
-</h2>
-
-
-<div class="menu-section">
-
-<h3>
-🏢 Склады
-</h3>
-
-<div class="menu-row">
-📍 Белгород
-</div>
-
-<div class="menu-row">
-📍 Москва
-</div>
-
-<div
-class="menu-row plus"
-onclick="addWarehouse()">
-
-＋ Добавить склад
-
-</div>
-
-</div>
+}
 
 
+function roleName() {
 
-<div class="menu-section">
+    if (currentUser.role === "seller")
+        return "Селлер";
 
-<h3>
-🛒 Платформы
-</h3>
+    if (currentUser.role === "manufacturer")
+        return "Производитель";
 
-`;
-
-platforms.forEach(
-(platform, index) => {
-
-html += `
-
-<div class="menu-row platform">
-
-${platform.name}
-
-</div>
-
-`;
-
-});
-
-html += `
-
-<div
-class="menu-row plus"
-onclick="addPlatform()">
-
-＋ Добавить платформу
-
-</div>
-
-</div>
-
-
-
-<div class="menu-section">
-
-<h3>
-👤 Аккаунты
-</h3>
-
-`;
-
-platforms.forEach(
-(platform, pIndex) => {
-
-html += `
-
-<div class="menu-row platform">
-
-${platform.name}
-
-`;
-
-platform.accounts.forEach(
-(account) => {
-
-html += `
-
-<div class="account">
-
-└ ${account.name}
-
-</div>
-
-`;
-
-});
-
-html += `
-
-<div
-class="account plus"
-onclick="addAccount(${pIndex})">
-
-＋ Добавить аккаунт
-
-</div>
-
-</div>
-
-`;
-
-});
-
-
-html += `
-
-</div>
-
-`;
-
-document.getElementById(
-"modalContent"
-).innerHTML = html;
-
-document.getElementById(
-"modal"
-).style.display = "block";
+    return "Производитель + Селлер";
 
 }
 
 
 
-/* ДОБАВИТЬ СКЛАД */
+/* =========================================================
+   ДАШБОРД
+========================================================= */
 
-function addWarehouse() {
+function renderDashboard() {
 
-let name = prompt(
-"Название города / склада:"
-);
+    const totalStock =
+        products.reduce(
+            (sum, product) =>
+                sum +
+                product.sizes.reduce(
+                    (s, x) => s + x.stock,
+                    0
+                ),
+            0
+        );
 
-if (!name) return;
 
-alert(
-`Склад «${name}» добавлен.`
-);
+    const totalOrders =
+        orders.reduce(
+            (sum, order) =>
+                sum + order.quantity,
+            0
+        );
+
+
+    const freeStock =
+        totalStock - totalOrders;
+
+
+    const uniqueAccounts =
+        new Set(
+            orders.map(order =>
+                order.account
+            )
+        ).size;
+
+
+    const supplierNeed =
+        products.reduce(
+            (sum, product) =>
+                sum +
+                product.sizes.reduce(
+                    (s, x) =>
+                        s + (x.supplierOrders || 0),
+                    0
+                ),
+            0
+        );
+
+
+    let html = `
+
+        <div class="section">
+
+            <div class="card">
+
+                <div class="small">
+                    Вы вошли как
+                </div>
+
+                <h2>
+                    ${currentUser.name}
+                </h2>
+
+                <span class="badge">
+                    ${roleName()}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="section">
+
+            <div class="section-title">
+                Сегодня
+            </div>
+
+
+            <div class="dashboard">
+
+
+                <div
+                    class="metric"
+                    onclick="showStockDetails()">
+
+                    <div class="metric-label">
+                        Всего товара
+                    </div>
+
+                    <div class="metric-value">
+                        ${totalStock}
+                    </div>
+
+                    <div class="metric-label">
+                        шт.
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="metric"
+                    onclick="showOrdersDetails()">
+
+                    <div class="metric-label">
+                        Заказано сегодня
+                    </div>
+
+                    <div class="metric-value">
+                        ${totalOrders}
+                    </div>
+
+                    <div class="metric-label">
+                        шт.
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="metric"
+                    onclick="showFreeDetails()">
+
+                    <div class="metric-label">
+                        Свободно
+                    </div>
+
+                    <div class="metric-value">
+                        ${freeStock}
+                    </div>
+
+                    <div class="metric-label">
+                        шт.
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="metric"
+                    onclick="showAccountsDetails()">
+
+                    <div class="metric-label">
+                        Аккаунтов получили заказы
+                    </div>
+
+                    <div class="metric-value">
+                        ${uniqueAccounts}
+                    </div>
+
+                </div>
+
+    `;
+
+
+    if (canManageProducts()) {
+
+        html += `
+
+            <div
+                class="metric warning"
+                onclick="showSupplierNeed()">
+
+                <div class="metric-label">
+                    Производителю нужно поставить
+                </div>
+
+                <div class="metric-value">
+                    ${supplierNeed}
+                </div>
+
+                <div class="metric-label">
+                    шт.
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    html += `
+
+            </div>
+
+        </div>
+
+
+        <div class="section">
+
+            <div class="section-title">
+                Склады
+            </div>
+
+    `;
+
+
+    warehouses.forEach(warehouse => {
+
+        html += `
+
+            <div
+                class="card warehouse clickable"
+                onclick="showWarehouse(${warehouse.id})">
+
+                <div class="warehouse-name">
+                    📍 ${warehouse.name}
+                </div>
+
+                <div>
+                    ${totalStockForWarehouse(warehouse.id)}
+                    шт.
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+        </div>
+
+
+        <div class="section">
+
+            <div class="section-title">
+                Товары
+            </div>
+
+    `;
+
+
+    if (products.length === 0) {
+
+        html += `
+
+            <div class="card empty">
+                Товаров пока нет.
+            </div>
+
+        `;
+
+    }
+
+
+    products.forEach(product => {
+
+        html += `
+
+            <div
+                class="card clickable"
+                onclick="showProduct(${product.id})">
+
+                <div class="product-title">
+                    ${product.name}
+                </div>
+
+                <div class="small">
+                    Нажмите для детализации
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+        </div>
+
+    `;
+
+
+    document.getElementById("app").innerHTML =
+        html;
 
 }
 
 
 
-/* ДОБАВИТЬ ПЛАТФОРМУ */
+/* =========================================================
+   ОСТАТКИ
+========================================================= */
 
-function addPlatform() {
+function totalStockForWarehouse(id) {
 
-let name = prompt(
-"Название платформы:"
-);
+    return products.reduce(
+        (sum, product) =>
+            sum +
+            product.sizes.reduce(
+                (s, size) =>
+                    s + size.stock,
+                0
+            ),
+        0
+    );
 
-if (!name) return;
+}
 
-platforms.push({
 
-name: name,
+function showStockDetails() {
 
-accounts: []
+    let html = `
 
-});
+        <button
+            class="back"
+            onclick="closeModal()">
 
-openMenu();
+            ← Назад
+
+        </button>
+
+        <h2>
+            Все остатки
+        </h2>
+
+    `;
+
+
+    products.forEach(product => {
+
+        html += `
+
+            <div class="modal-row">
+
+                <b>
+                    ${product.name}
+                </b>
+
+            </div>
+
+        `;
+
+
+        product.sizes.forEach(size => {
+
+            html += `
+
+                <div
+                    class="modal-row"
+                    onclick="showSizeStock(
+                        ${product.id},
+                        '${size.size}'
+                    )">
+
+                    Размер ${size.size}
+
+                    <br>
+
+                    <b>
+                        ${size.stock} шт.
+                    </b>
+
+                </div>
+
+            `;
+
+        });
+
+    });
+
+
+    openModal(html);
 
 }
 
 
 
-/* ДОБАВИТЬ АККАУНТ */
+function showSizeStock(productId, sizeName) {
 
-function addAccount(
-platformIndex
-) {
+    const product =
+        products.find(
+            p => p.id === productId
+        );
 
-let name = prompt(
-"Название аккаунта:"
-);
+    const size =
+        product.sizes.find(
+            s => s.size === sizeName
+        );
 
-if (!name) return;
 
-platforms[
-platformIndex
-].accounts.push({
+    const sold =
+        orders
+            .filter(
+                o =>
+                    o.product === productId &&
+                    o.size === sizeName
+            )
+            .reduce(
+                (sum, o) =>
+                    sum + o.quantity,
+                0
+            );
 
-name: name,
 
-orders: 0
+    let html = `
 
-});
+        <button
+            class="back"
+            onclick="showStockDetails()">
 
-openMenu();
+            ← Назад
+
+        </button>
+
+        <h2>
+            ${product.name}
+        </h2>
+
+        <p>
+            Размер: <b>${sizeName}</b>
+        </p>
+
+
+        <div class="modal-row">
+            Физический остаток:
+            <b>${size.stock} шт.</b>
+        </div>
+
+
+        <div class="modal-row">
+            Заказано:
+            <b>${sold} шт.</b>
+        </div>
+
+
+        <div class="modal-row">
+            Свободно:
+            <b>${size.stock - sold} шт.</b>
+        </div>
+
+    `;
+
+
+    openModal(html);
 
 }
 
 
 
-/* ЗАКРЫТЬ */
+/* =========================================================
+   ЗАКАЗЫ
+========================================================= */
 
-function closeModal() {
+function showOrdersDetails() {
 
-document.getElementById(
-"modal"
-).style.display = "none";
+    let html = `
+
+        <button
+            class="back"
+            onclick="closeModal()">
+
+            ← Назад
+
+        </button>
+
+        <h2>
+            Заказы сегодня
+        </h2>
+
+    `;
+
+
+    if (orders.length === 0) {
+
+        html += `
+            <div class="empty">
+                Заказов нет.
+            </div>
+        `;
+
+    }
+
+
+    orders.forEach(order => {
+
+        const product =
+            products.find(
+                p => p.id === order.product
+            );
+
+        const platform =
+            platforms.find(
+                p => p.id === order.platform
+            );
+
+        const account =
+            findAccount(order.account);
+
+
+        html += `
+
+            <div class="modal-row">
+
+                <b>
+                    ${order.id}
+                </b>
+
+                <br>
+
+                ${product.name}
+
+                · размер ${order.size}
+
+                · ${order.quantity} шт.
+
+                <br>
+
+                <span class="small">
+                    ${platform.name}
+                    → ${account.name}
+                </span>
+
+            </div>
+
+        `;
+
+    });
+
+
+    openModal(html);
 
 }
 
-</script>
 
-</body>
-</html>
+
+/* =========================================================
+   ПРОВАЛИВАНИЕ ЗАКАЗОВ
+========================================================= */
+
+function showPlatforms(productId, sizeName) {
+
+    const filtered =
+        orders.filter(
+            order =>
+                order.product === productId &&
+                order.size === sizeName
+        );
+
+
+    let grouped = {};
+
+
+    filtered.forEach(order => {
+
+        if (!grouped[order.platform]) {
+            grouped[order.platform] = 0;
+        }
+
+        grouped[order.platform] +=
+            order.quantity;
+
+    });
+
+    
